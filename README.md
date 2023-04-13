@@ -20,11 +20,27 @@ An optional field for logos will give companies the opportunity to introduce the
 - [Acknowledgments & Sources](#acknowledgments&sources)
 - [Contact](#contact)
 
-
 ## <a id='import'></a> Import
 
 ## <a id='gettingstarted'></a> Getting Started
+For those of you who just want to use the dashboard after some minor adjustments please draw your attention to (1) 
+the BUTTON_AUTOSTART.xlsx-spreadsheet file () and (2) the Actionbutton-Dashboard-jar-with-dependencies.jar. First, 
+please open and modify the spreadsheet as follows:
+
+| tab          | explanation                                                                        |
+|--------------|------------------------------------------------------------------------------------|
+| fieldnames   | words that are imprinted onto the button                                           |
+| category     |                                                                                    |
+| URL          | link, that the button is going to open. It can be a file path, a file or a website |
+| color        | color in RGB-code that defines the color of the button (text and button frame)     |
+
+Note: The buttons have to be defined from top to bottom. Blank calls will cause, that everything below will be ignored 
+
+When you are done, please save the spreadsheet and double-click on the jar
+
 ```java -jar my-project-name-jar-with-dependencies.jar```
+
+
 
 ## <a id='folderstructure'></a> Folder structure
 ```
@@ -33,53 +49,61 @@ An optional field for logos will give companies the opportunity to introduce the
 |   pom.xml
 |   README.md
 |
-+---.idea +++
-+---META-INF +++
-+---README_Images
-|       Screenshot_Actionbutton-Dashboard.png
-|       Screenshot_Spreadsheet.png
++---.idea +++                                                    (COLLAPSED)
++---META-INF +++                                                 (COLLAPSED)
++---README_Images +++                                            (COLLAPSED)
 |
 +---src
-|   |   config.properties
+|   |   config.properties                                        <--- (3) Configuration file defining paths amd spreadsheet sizes
 |   |
 |   \---main
 |       +---java
-|       |   |   BuildDashboard.java
-|       |   |   Main.java
+|       |   |   packageBuildDashboard.BuildDashboard.java
+|       |   |   Main.java                                        <--- (4) Main 
 |       |   |
-|       |   +---packageIconEditing
-|       |   |       IconEditingImageTransform.java
-|       |   |
-|       |   +---packageJButtons
-|       |   |       JButtonsSetUpActionListener.java
-|       |   |
-|       |   \---packageSpreadsheet
-|       |           SpreadsheetReadCellData.java
+|       |   +---packageIconEditing +++                           (COLLAPSED)
+|       |   +---packageJButtons +++                              (COLLAPSED)
+|       |   \---packageSpreadsheet +++                           (COLLAPSED)
 |       |
 |       \---resources
-|           +---icons +++
-|           |
-|           +---images +++
+|           +---icons +++                                        (COLLAPSED)
+|           +---images +++                                       (COLLAPSED)
 |           |
 |           \---spreadsheetFiles
 |                   BUTTON_AUTOSTART.xlsx
 |
 \---target
-    |   Actionbutton-Dashboard-jar-with-dependencies.jar
+    |   Actionbutton-Dashboard-jar-with-dependencies.jar         <--- (2) Executable JAR, will be updated when modifying the Spreadsheet
     |   Actionbutton-Dashboard.jar
     |
-    +---archive-tmp +++
-    +---classes +++
-    +---generated-sources +++
-    +---maven-archiver +++
-    +---maven-status +++
-    \---src +++
+    +---archive-tmp +++                                          (COLLAPSED)
+    +---classes +++                                              (COLLAPSED)
+    +---generated-sources +++                                    (COLLAPSED)
+    +---maven-archiver +++                                       (COLLAPSED)
+    +---maven-status +++                                         (COLLAPSED)
+    \---src
+        |   config.properties
+        |
+        \---main
+            +---java +++                                         (COLLAPSED)
+            |
+            \---resources
+                +---icons +++                                    (COLLAPSED)
+                +---images +++                                   (COLLAPSED)
+                |
+                \---spreadsheetFiles
+                        BUTTON_AUTOSTART.xlsx                     <--- (1) Spreadsheet to be modified
+
+    
+    
 ```
 [//]: # (tree /a /f)
 
 ## <a id='example'></a> Example
+## <a id='PlannedUpdates'></a> Planned Updates
 ## <a id='authors'></a> Authors
 ## <a id='contributors&credits'></a> Contributors & Credits
 ## <a id='license'></a> License
 ## <a id='acknowledgments&sources'></a> Acknowledgments & Sources
 ## <a id='contact'></a> Contact
+## <a id='import'></a> Import

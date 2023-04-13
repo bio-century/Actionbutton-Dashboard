@@ -1,4 +1,5 @@
 import com.formdev.flatlaf.FlatDarkLaf;
+import packageBuildDashboard.BuildDashboard;
 //import packageSpreadsheet.SpreadsheetReturnDimensions;
 
 
@@ -107,32 +108,38 @@ public class Main {
             for (File file : folder.listFiles()) {
                 datastring[aa] = file.getName();
                 int FILE_NAME_LENGTH = datastring[aa].length();
-                System.out.println(datastring[aa].substring(0, FILE_NAME_LENGTH-0));
+//                System.out.println(datastring[aa].substring(0, FILE_NAME_LENGTH-0));
                 CATEGORY_NAMES[aa] = datastring[aa].substring(0, FILE_NAME_LENGTH-5);
+
                 aa++;
             }
 
 
 
-            BuildDashboard BD = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+
+
+
+
+
+
+            BuildDashboard BD = new BuildDashboard();
+            BD.DashboardBuild(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
                     NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
                     USER_DIR_SPREADSHEETS,
                     SPREADSHEET_NAME,
                     FONTNAME,
                     NUMBER_OF_ROWS,
-                    NUMBER_OF_COLUMNS);
-
-            BD.setUpGUI(new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
+                    NUMBER_OF_COLUMNS,
+                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
                     IMAGE_LOGO_WIDTH,
                     IMAGE_LOGO_HEIGHT,
                     USER_DIR_IMAGES,
                     IMAGE_LOGO,
-                    USER_DIR_ICONS,
-                    FONTNAME,
-                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
-                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
+                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
+                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50,
                     FRAME_TITLE,
-                    CATEGORY_NAMES[0]);
+                    USER_DIR_ICONS);
+
 
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: FileNotFoundException");
