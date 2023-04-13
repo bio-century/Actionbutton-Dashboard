@@ -39,7 +39,7 @@ public class Main {
         FileUtils.copyDirectory(sourceDirectory, destinationDirectory);
 
         try {
-            String PATH_CONFIG_FILE = USER_DIR + "\\src\\config.properties";
+            String PATH_CONFIG_FILE = USER_DIR + "\\src\\main\\resources\\config.properties";
             FileInputStream propsInput = new FileInputStream(PATH_CONFIG_FILE);
             Properties prop = new Properties();
             prop.load(propsInput);

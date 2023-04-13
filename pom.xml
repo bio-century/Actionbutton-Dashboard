@@ -124,19 +124,51 @@
                 </executions>
             </plugin>
 
+
+
+            <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.0</version>
+            <executions>
+                <execution>
+                    <id>copy-resources</id>
+                    <phase>validate</phase>
+
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/src/main/resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources</directory>
+<!--                                    <filtering>true</filtering>-->
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+
+
+
+
+
         </plugins>
 
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>./icons/*.png</include>
-                    <include>./images/*.png</include>
-                    <include>./spreadsheetFiles/*.xlsx</include>
-                </includes>
-            </resource>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                <includes>-->
+<!--                    <include>./icons/*.png</include>-->
+<!--                    <include>./images/*.png</include>-->
+<!--                    <include>./spreadsheetFiles/*.xlsx</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
 
-        </resources>
+<!--        </resources>-->
     </build>
 </project>
 
