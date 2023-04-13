@@ -34,10 +34,6 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        File sourceDirectory = new File(USER_DIR + "\\src\\main\\resources\\");
-        File destinationDirectory = new File(USER_DIR + "\\target\\src\\main\\resources\\");
-        FileUtils.copyDirectory(sourceDirectory, destinationDirectory);
-
         try {
             String PATH_CONFIG_FILE = USER_DIR + "\\src\\main\\resources\\config.properties";
             FileInputStream propsInput = new FileInputStream(PATH_CONFIG_FILE);

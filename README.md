@@ -1,4 +1,4 @@
-# Actionbutton-Dashboard
+# The Actionbutton-Dashboard Project
 
 # Abstract
 Sick and tired of endless navigation through directories and bookmark inventories? The Actionbutton-Dashboard-project
@@ -14,11 +14,13 @@ An optional field for logos will give companies the opportunity to introduce the
 - [Getting Started](#gettingstarted)
 - [Folder structure](#folderstructure)
 - [Example](#example)
-- [Authors](#authors)
-- [Contributors & Credits](#contributors&credits)
+- [Planned Updates](#PlannedUpdates)
+- [Contributors & Credits](#Contributors&Credits)
 - [License](#license)
-- [Acknowledgments & Sources](#acknowledgments&sources)
+- [Contributors & Acknowledgments](#Contributors&Acknowledgments)
+- [Sources](#Sources)
 - [Contact](#contact)
+
 
 ## <a id='import'></a> Import
 
@@ -41,11 +43,9 @@ When you are done, please save the spreadsheet and double-click on the jar
 ```java -jar my-project-name-jar-with-dependencies.jar```
 
 
-
 ## <a id='folderstructure'></a> Folder structure
 ```
-|   Copy_Resources_Linux.sh
-|   Copy_Resources_Windows.bat
+|   LICENSE
 |   pom.xml
 |   README.md
 |
@@ -54,7 +54,6 @@ When you are done, please save the spreadsheet and double-click on the jar
 +---README_Images +++                                            (COLLAPSED)
 |
 +---src
-|   |   config.properties                                        <--- (3) Configuration file defining paths amd spreadsheet sizes
 |   |
 |   \---main
 |       +---java
@@ -65,18 +64,20 @@ When you are done, please save the spreadsheet and double-click on the jar
 |       |   +---packageJButtons +++                              (COLLAPSED)
 |       |   \---packageSpreadsheet +++                           (COLLAPSED)
 |       |
-|       \---resources
+|       \---resources                                            <--- (3) Configuration file defining paths amd spreadsheet sizes
+|           |   config.properties
 |           +---icons +++                                        (COLLAPSED)
 |           +---images +++                                       (COLLAPSED)
 |           |
 |           \---spreadsheetFiles
+|                   BUTTON_AUTOSTAR2.xlsx
+|                   BUTTON_AUTOSTAR3.xlsx
 |                   BUTTON_AUTOSTART.xlsx
 |
 \---target
     |   Actionbutton-Dashboard-jar-with-dependencies.jar         <--- (2) Executable JAR, will be updated when modifying the Spreadsheet
     |   Actionbutton-Dashboard.jar
     |
-    +---archive-tmp +++                                          (COLLAPSED)
     +---classes +++                                              (COLLAPSED)
     +---generated-sources +++                                    (COLLAPSED)
     +---maven-archiver +++                                       (COLLAPSED)
@@ -101,9 +102,35 @@ When you are done, please save the spreadsheet and double-click on the jar
 
 ## <a id='example'></a> Example
 ## <a id='PlannedUpdates'></a> Planned Updates
-## <a id='authors'></a> Authors
 ## <a id='contributors&credits'></a> Contributors & Credits
 ## <a id='license'></a> License
-## <a id='acknowledgments&sources'></a> Acknowledgments & Sources
+This work is published under the GPL-2.0 license.
+
+## <a id='ContributorsAcknowledgments'></a> Contributors & Acknowledgments
+Many thanks to the comber.io admin for inspirations, code reviews and for initializing the bio-century.net website.
+
+## <a id='Sources'></a> Sources
+
+- https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java 
+- https://stackoverflow.com/questions/13438871/log4j2-configuring
+- https://mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/
+- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml/3.9
+- https://www.javatpoint.com/how-to-read-excel-file-in-java
+- https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
+- https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum--
+
+- https://www.youtube.com/watch?v=816wduoH9eY
+- https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
+- https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+- https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
+- https://stackoverflow.com/questions/57075145/what-element-controls-the-color-of-the-thin-strip-between-jpanel-and-jtabbedpane
+- https://stackoverflow.com/questions/15694107/how-to-layout-multiple-panels-on-a-jframe-java
+
+- https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
+- https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum--
+- https://www.youtube.com/watch?v=816wduoH9eY
+- https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
+
 ## <a id='contact'></a> Contact
-## <a id='import'></a> Import
+info@bio-century.net
+
