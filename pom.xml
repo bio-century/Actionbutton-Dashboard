@@ -83,8 +83,14 @@
             <version>3.2.0</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
     </dependencies>
+
+
 
     <build>
         <finalName>Actionbutton-Dashboard</finalName>
@@ -119,6 +125,18 @@
             </plugin>
 
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>./icons/*.png</include>
+                    <include>./images/*.png</include>
+                    <include>./spreadsheetFiles/*.xlsx</include>
+                </includes>
+            </resource>
+
+        </resources>
     </build>
 </project>
 

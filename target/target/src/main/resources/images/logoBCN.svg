@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="54.917198mm"
+   height="9mm"
+   viewBox="0 0 54.917198 9"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="logoBCN.svg"
+   inkscape:export-filename="D:\Daten\WEBSITE\96_BUTTONS_AUTOSTART_MAVEN\BUTTONS_AUTOSTART_MAVEN_GITHUB\src\main\resources\images\logoBCN.png"
+   inkscape:export-xdpi="400.75555"
+   inkscape:export-ydpi="400.75555"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.1241863"
+     inkscape:cx="130.36216"
+     inkscape:cy="17.661341"
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="3191"
+     inkscape:window-y="427"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000a34;fill-opacity:1;stroke:none;stroke-width:1.05822"
+       id="rect27656"
+       width="9"
+       height="54.917198"
+       x="0"
+       y="-54.917198"
+       transform="rotate(90)" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;stroke-width:0.264583"
+       x="27.476557"
+       y="6.5505133"
+       id="text5336"><tspan
+         sodipodi:role="line"
+         id="tspan5334"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="27.476559"
+         y="6.5505133"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#4c87c8;fill-opacity:1"
+           id="tspan14898">bio-century</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:Arial;-inkscape-font-specification:'Arial Bold';stroke:none;stroke-opacity:1"
+           id="tspan21630">.net</tspan></tspan></text>
+  </g>
+</svg>

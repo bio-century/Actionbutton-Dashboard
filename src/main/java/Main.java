@@ -1,4 +1,5 @@
 import com.formdev.flatlaf.FlatDarkLaf;
+import org.apache.commons.io.FileUtils;
 import packageBuildDashboard.BuildDashboard;
 //import packageSpreadsheet.SpreadsheetReturnDimensions;
 
@@ -32,6 +33,10 @@ public class Main {
         } catch (UnsupportedLookAndFeelException e) {
             throw new RuntimeException(e);
         }
+
+        File sourceDirectory = new File(USER_DIR + "\\src\\main\\resources\\");
+        File destinationDirectory = new File(USER_DIR + "\\target\\src\\main\\resources\\");
+        FileUtils.copyDirectory(sourceDirectory, destinationDirectory);
 
         try {
             String PATH_CONFIG_FILE = USER_DIR + "\\src\\config.properties";
