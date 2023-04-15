@@ -1,10 +1,8 @@
 package packageBuildDashboard;
 
 import packageIconEditing.IconEditingImageTransform;
-//import packageJButtons.JButtonArray;
 import packageJButtons.JButtonsSetUpActionListener;
 import packageSpreadsheet.SpreadsheetReadCellData;
-//import packageSpreadsheet.SpreadsheetReturnDimensions;
 
 import javax.swing.*;
 import java.awt.Dimension;
@@ -12,12 +10,9 @@ import java.awt.Color;
 import java.awt.*;
 
 import javax.swing.border.*;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.InsetsUIResource;
 import javax.swing.UIManager;
 
@@ -31,11 +26,7 @@ import javax.swing.UIManager;
 
 public class BuildDashboard {
 
-    public JFrame myFrame;
     public JPanel myPanelCat;
-    static Color myColorJButtonsBackground = new Color(200, 200, 52);
-    static Color myColorJFrameBackground = new Color(0, 10, 255); ///////macht nix!
-    public static Color myColorJTabbedPaneFrame = new Color(76,15,200);
 
     public BuildDashboard(int w, int h, String USER_DIR_SPREADSHEETS, String SPREADSHEET_NAME, String FONTNAME, int NUMBER_OF_ROWS,
                           int NUMBER_OF_COLUMNS, int[] SpreadSheetDimensions,
@@ -43,11 +34,15 @@ public class BuildDashboard {
                           int IMAGE_LOGO_HEIGHT,
                           String USER_DIR_IMAGES,
                           String IMAGE_LOGO,
-                          int WIDTH,
-                          int HEIGHT,
-                          String FRAME_TITLE,
-                          String USER_DIR_ICONS,
-                          String SPREADSHEET_ALL) {
+                          String SPREADSHEET_ALL,
+                          String[] MY_COLOR_LOGO_BACKGROUND_ALL,
+                          String[] MY_COLOR_JBUTTON_BACKGROUND_ALL,
+                          String[] MY_COLOR_JBUTTON_MOUSE_OVER_ALL,
+                          String[] MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL,
+                          String[] MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL,
+                          String[] MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL,
+                          String[] MY_COLOR_JTAB_BACKGROUND_ALL
+    ) {
 
         String[][] myFieldnamesAll;
         myFieldnamesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
@@ -108,7 +103,11 @@ public class BuildDashboard {
                     jj++;
                 } else {
                     myButtons[kk] = new JButton();
-                    myButtons[kk].setBackground(myColorJButtonsBackground);
+                    myButtons[kk].setBackground(new Color(
+                            Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[0]),
+                            Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[1]),
+                            Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[2])
+                    ));
                     myButtons[kk].setHorizontalAlignment(SwingConstants.LEFT);
                     String[] values = myColorAll[i][j].split(",");
                     int values_int1;
@@ -128,11 +127,28 @@ public class BuildDashboard {
                     int finalLl = kk;
                     myButtons[kk].addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseEntered(java.awt.event.MouseEvent evt) {
-                            myButtons[finalLl].setBackground(new Color(0, 255, 52));
+                            myButtons[finalLl].setBackground(new Color(
+                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[0]),
+                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[1]),
+                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[2])
+                                    )
+                            );
                         }
-
+                        public void mousePressed(java.awt.event.MouseEvent evt) {
+                            myButtons[finalLl].setBackground(new Color(
+                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[0]),
+                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[1]),
+                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
+                                    )
+                            );
+                        }
                         public void mouseExited(java.awt.event.MouseEvent evt) {
-                            myButtons[finalLl].setBackground(myColorJButtonsBackground);
+                            myButtons[finalLl].setBackground(new Color(
+                                            Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[0]),
+                                            Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[1]),
+                                            Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[2])
+                                    )
+                            );
                         }
                     });
                     kk++;
@@ -141,14 +157,12 @@ public class BuildDashboard {
         }
 
         this.myPanelCat = new JPanel();
-        myFrame = new JFrame();
-        myFrame.getContentPane().setBackground(myColorJFrameBackground);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridBagLayout());
 
-        JPanel myPanelJButtonArray2 = new JPanel();
-        myPanelJButtonArray2.setLayout(new GridLayout(SpreadSheetDimensions[0], SpreadSheetDimensions[1], 7, 2));
+        JPanel myPanelJButtonArray = new JPanel();
+        myPanelJButtonArray.setLayout(new GridLayout(SpreadSheetDimensions[0], SpreadSheetDimensions[1], 7, 2));
 
         ii = 0;
         jj = 0;
@@ -156,10 +170,10 @@ public class BuildDashboard {
         for (int i = 0; i < SpreadSheetDimensions[0]; i++) {
             for (int j = 0; j < SpreadSheetDimensions[1]; j++) {
                 if (j < 10 && i == 0) {
-                    myPanelJButtonArray2.add(myLabels[ii]);
+                    myPanelJButtonArray.add(myLabels[ii]);
                     ii++;
                 } else if (myFieldnamesAll[i][j] == "") {
-                    myPanelJButtonArray2.add(myLabelsBlanks[jj]);
+                    myPanelJButtonArray.add(myLabelsBlanks[jj]);
                     jj++;
                 } else {
                     myButtons[kk].addActionListener(
@@ -169,61 +183,66 @@ public class BuildDashboard {
                                     myUrlAll[i][j]));
 
                     myButtons[kk].setSize(new Dimension(30, 50));//   setPreferredSize(new Dimension(30, 30));
-                    myPanelJButtonArray2.add(myButtons[kk]);
+                    myPanelJButtonArray.add(myButtons[kk]);
                     kk++;
                 }
             }
         }
-        myPanelJButtonArray2.setSize(500,500);
-        myFrame.setSize(WIDTH, HEIGHT);
-        myFrame.setTitle(FRAME_TITLE);
-        myFrame.setResizable(false);
+        myPanelJButtonArray.setSize(500,500);
 
         JTabbedPane tabpane = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
         UIManager.put("TabbedPane.contentBorderInsets", new InsetsUIResource(1, 0,0, 0));
-        UIManager.put("TabbedPane.contentAreaColor", new ColorUIResource(myColorJTabbedPaneFrame));
         SwingUtilities.updateComponentTreeUI(tabpane);
 
         JPanel myPanelCat = new JPanel();
         myPanelCat.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
+
         ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
 
         JPanel myPanelNavigation = new JPanel(new BorderLayout());
         JLabel iconLabel = new JLabel(myImageLogo);
         iconLabel.setVerticalAlignment(JLabel.NORTH);
-        myPanelNavigation.setBackground(new Color(0,255, 0));
+        myPanelNavigation.setBackground(new Color(
+                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[0]),
+                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[1]),
+                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[2])
+        ));
+
         myPanelNavigation.add(iconLabel, BorderLayout.SOUTH);
 
-        c.fill = GridBagConstraints.VERTICAL;
-        c.gridwidth = 1;
-        c.weightx = .01;
-        c.weighty = .01;
-        c.gridx = 0;
-        c.gridy = 0;
+        GridBagConstraints myGridBag = new GridBagConstraints();
 
-        myPanelJButtonArray2.setBackground(new Color(200,0, 0));
+        myGridBag.fill = GridBagConstraints.VERTICAL;
+        myGridBag.gridwidth = 1;
+        myGridBag.weightx = .01;
+        myGridBag.weighty = .01;
+        myGridBag.gridx = 0;
+        myGridBag.gridy = 0;
+
+        myPanelJButtonArray.setBackground(new Color(
+                Integer.parseInt(MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL[0]),
+                Integer.parseInt(MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL[1]),
+                Integer.parseInt(MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL[2])
+        ));
 
         Font myFontTabTitle = new Font(FONTNAME, Font.PLAIN, 22);
         tabpane.setFont(myFontTabTitle);
 
-        UIManager.put("TabbedPane.selected", new Color(76,135,200));
-
-        JMenuBar menubar;
-        menubar = new JMenuBar();
-        menubar.setOpaque(true);
-        menubar.setBackground(Color.green);
-
         this.myPanelCat = myPanelCat;
 
-        this.myPanelCat.add(myPanelJButtonArray2, c);
+        this.myPanelCat.add(myPanelJButtonArray, myGridBag);
         this.myPanelCat.setSize(500,500);
 
-        c.fill = GridBagConstraints.VERTICAL;
-        c.gridx = 0;
-        c.gridy = 1;
+        myGridBag.fill = GridBagConstraints.VERTICAL;
+        myGridBag.gridx = 0;
+        myGridBag.gridy = 1;
 
-        this.myPanelCat.add(myPanelNavigation, c);
-        this.myPanelCat.setBackground(new Color(0,100, 0));
+        this.myPanelCat.add(myPanelNavigation, myGridBag);
+        this.myPanelCat.setBackground(new Color(
+                Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[0]),
+                Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[1]),
+                Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[2])
+        ));
+
     }
 }
