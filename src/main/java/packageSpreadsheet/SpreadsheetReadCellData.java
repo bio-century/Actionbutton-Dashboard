@@ -16,11 +16,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 // https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
 
 public class SpreadsheetReadCellData {
-    public String ReadSpreadsheet(String USER_DIR_SPREADSHEETS, String SPREADSHEET_NAME, int vRow, int vColumn, int vsheet, int wbook) {
+    public String ReadSpreadsheet(String SPREADSHEET_NAME, int vRow, int vColumn, int vsheet, int wbook) {
         String value = null;
         Workbook wb = null;
         try {
-            FileInputStream fis = new FileInputStream(USER_DIR_SPREADSHEETS + SPREADSHEET_NAME);
+            FileInputStream fis = new FileInputStream(SPREADSHEET_NAME);
             wb = new XSSFWorkbook(fis);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

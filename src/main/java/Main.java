@@ -98,8 +98,8 @@ public class Main {
 
             System.out.println("\n");
             System.out.println("/////////////////////////////////////////////////////\n" +
-                               "// CONFIG FILE DEFINING THE ACTIONBUTTON-DASHBOARD //\n" +
-                               "/////////////////////////////////////////////////////");
+                    "// CONFIG FILE DEFINING THE ACTIONBUTTON-DASHBOARD //\n" +
+                    "/////////////////////////////////////////////////////");
 
             // File Paths
             System.out.println("File Paths:");
@@ -137,62 +137,56 @@ public class Main {
             File folder = new File(USER_DIR_SPREADSHEETS);
 
             String CATEGORY_NAMES[] = new String[FILE_NUMBER];
+            String SPREADSHEET_ALL[] = new String[FILE_NUMBER];
+
             int aa = 0;
             for (File file : folder.listFiles()) {
                 datastring[aa] = file.getName();
                 int FILE_NAME_LENGTH = datastring[aa].length();
 //                System.out.println(datastring[aa].substring(0, FILE_NAME_LENGTH-0));
-                CATEGORY_NAMES[aa] = datastring[aa].substring(0, FILE_NAME_LENGTH-5);
-
+                CATEGORY_NAMES[aa] = datastring[aa].substring(0, FILE_NAME_LENGTH - 5);
+                SPREADSHEET_ALL[aa] = USER_DIR_SPREADSHEETS + "\\" + datastring[aa].substring(0, FILE_NAME_LENGTH-0);
+                System.out.println(SPREADSHEET_ALL[aa]);
                 aa++;
             }
 
 
+//            BuildDashboard BD = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
+//                    USER_DIR_SPREADSHEETS,
+//                    SPREADSHEET_NAME,
+//                    FONTNAME,
+//                    NUMBER_OF_ROWS,
+//                    NUMBER_OF_COLUMNS,
+//                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
+//                    IMAGE_LOGO_WIDTH,
+//                    IMAGE_LOGO_HEIGHT,
+//                    USER_DIR_IMAGES,
+//                    IMAGE_LOGO,
+//                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
+//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50,
+//                    FRAME_TITLE,
+//                    USER_DIR_ICONS);
+//            JPanel jPanel = BD.myPanelCat3[1];
+//
+//            BuildDashboard BD2 = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
+//                    USER_DIR_SPREADSHEETS,
+//                    SPREADSHEET_NAME,
+//                    FONTNAME,
+//                    NUMBER_OF_ROWS,
+//                    NUMBER_OF_COLUMNS,
+//                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
+//                    IMAGE_LOGO_WIDTH,
+//                    IMAGE_LOGO_HEIGHT,
+//                    USER_DIR_IMAGES,
+//                    IMAGE_LOGO,
+//                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
+//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50,
+//                    FRAME_TITLE,
+//                    USER_DIR_ICONS);
+//            JPanel jPanel2 = BD2.myPanelCat3[1];
 
-
-
-
-
-
-
-            BuildDashboard BD = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
-                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
-                    USER_DIR_SPREADSHEETS,
-                    SPREADSHEET_NAME,
-                    FONTNAME,
-                    NUMBER_OF_ROWS,
-                    NUMBER_OF_COLUMNS,
-                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
-                    IMAGE_LOGO_WIDTH,
-                    IMAGE_LOGO_HEIGHT,
-                    USER_DIR_IMAGES,
-                    IMAGE_LOGO,
-                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
-                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50,
-                    FRAME_TITLE,
-                    USER_DIR_ICONS);
-
-            BuildDashboard BD2 = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
-                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
-                    USER_DIR_SPREADSHEETS,
-                    SPREADSHEET_NAME,
-                    FONTNAME,
-                    NUMBER_OF_ROWS,
-                    NUMBER_OF_COLUMNS,
-                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
-                    IMAGE_LOGO_WIDTH,
-                    IMAGE_LOGO_HEIGHT,
-                    USER_DIR_IMAGES,
-                    IMAGE_LOGO,
-                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
-                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50,
-                    FRAME_TITLE,
-                    USER_DIR_ICONS);
-
-            JPanel jPanel = BD.myPanelCat3[1];
-
-
-            JPanel jPanel2 = BD2.myPanelCat3[1];
 //            BD.BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
 //                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
 //                    USER_DIR_SPREADSHEETS,
@@ -209,11 +203,41 @@ public class Main {
 //                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50,
 //                    FRAME_TITLE,
 //                    USER_DIR_ICONS);
-
             JTabbedPane tabpane1 = new JTabbedPane();
-            tabpane1.setBackground(new Color(76,15, 200));
-            tabpane1.addTab("  " + "three" + " ", jPanel);
-            tabpane1.addTab("  " + "two" + " ", jPanel2);
+            tabpane1.setBackground(new Color(76, 15, 200));
+
+//            tabpane1.addTab("  " + "three" + " ", jPanel);
+//            tabpane1.addTab("  " + "two" + " ", jPanel2);
+
+            BuildDashboard[] BD3 = new BuildDashboard[aa];
+            JPanel[] jPanel3 = new JPanel[aa];
+
+            System.out.println("aa is currently: " + String.valueOf(aa));
+
+            for (int i = 0; i < aa; i++) {
+
+                BD3[i] = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+                        NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
+                        USER_DIR_SPREADSHEETS,
+                        SPREADSHEET_NAME,
+                        FONTNAME,
+                        NUMBER_OF_ROWS,
+                        NUMBER_OF_COLUMNS,
+                        new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
+                        IMAGE_LOGO_WIDTH,
+                        IMAGE_LOGO_HEIGHT,
+                        USER_DIR_IMAGES,
+                        IMAGE_LOGO,
+                        NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
+                        NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50,
+                        FRAME_TITLE,
+                        USER_DIR_ICONS,
+                        SPREADSHEET_ALL[i]);
+                jPanel3[i] = BD3[i].myPanelCat3[1];
+
+                System.out.println("i is currently: " + String.valueOf(i));
+                tabpane1.addTab("  " + "three" + " ", jPanel3[i]);
+            }
 
 
 //            BD.myFrame
@@ -224,7 +248,7 @@ public class Main {
             Color myColorJFrameBackground = new Color(0, 10, 52);
 
             int WIDTH = NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400;
-            int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50;
+            int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50;
 
 
             myFrame = new JFrame();
@@ -241,12 +265,9 @@ public class Main {
             menubar.setBackground(Color.green);
             myFrame.add(tabpane1, BorderLayout.CENTER);
 
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myFrame.setJMenuBar(menubar);
-        myFrame.setVisible(true);
-
-
-
+            myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            myFrame.setJMenuBar(menubar);
+            myFrame.setVisible(true);
 
 
 // insert myframe here...

@@ -49,7 +49,8 @@ public class BuildDashboard {
                           int WIDTH,
                           int HEIGHT,
                           String FRAME_TITLE,
-                          String USER_DIR_ICONS) {
+                          String USER_DIR_ICONS,
+                          String SPREADSHEET_ALL) {
 
 
 //BuildJButtonArray BJBA = new BuildJButtonArray(USER_DIR_SPREADSHEETS,
@@ -102,10 +103,10 @@ public class BuildDashboard {
         for (int i = 0; i < NUMBER_OF_ROWS; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
                 ColRowCounts[j] = 0;
-                myFieldnamesAll[i][j] = rc.ReadSpreadsheet(USER_DIR_SPREADSHEETS, SPREADSHEET_NAME, i, j, 0, 1);
-                myCategoriesAll[i][j] = rc.ReadSpreadsheet(USER_DIR_SPREADSHEETS, SPREADSHEET_NAME, i, j, 1, 1);
-                myUrlAll[i][j] = rc.ReadSpreadsheet(USER_DIR_SPREADSHEETS, SPREADSHEET_NAME, i, j, 2, 1);
-                myColorAll[i][j] = rc.ReadSpreadsheet(USER_DIR_SPREADSHEETS, SPREADSHEET_NAME, i, j, 3, 1);
+                myFieldnamesAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 0, 1);
+                myCategoriesAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 1, 1);
+                myUrlAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 2, 1);
+                myColorAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 3, 1);
                 if (myFieldnamesAll[i][j] == "") {
                 } else {
                     ColRowCounts[j] = ColRowCounts[j] + 1;
@@ -113,7 +114,7 @@ public class BuildDashboard {
 
                 if (j < NUMBER_OF_COLUMNS && i == 0) {
                     String colorallfg;
-                    colorallfg = rc.ReadSpreadsheet(USER_DIR_SPREADSHEETS, SPREADSHEET_NAME, 1, j, 3, 1);
+                    colorallfg = rc.ReadSpreadsheet(SPREADSHEET_ALL, 1, j, 3, 1);
                     String[] mySpreadSheetColorRGB = colorallfg.split(",");
 
                     int mySpreadSheetColorR;
