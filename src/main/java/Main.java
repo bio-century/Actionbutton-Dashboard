@@ -60,7 +60,10 @@ public class Main {
             int NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR = Integer.parseInt(prop.getProperty("NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR"));
             int NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR = Integer.parseInt(prop.getProperty("NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR"));
 
-            // Company logo specifications
+            // Tab Icons
+            String TAB_ICON_NAME = prop.getProperty("TAB_ICON_NAME");
+
+            // Company Logo Specifications
             String IMAGE_LOGO = prop.getProperty("IMAGE_LOGO");
             int IMAGE_LOGO_WIDTH = Integer.parseInt(prop.getProperty("IMAGE_LOGO_WIDTH"));
             int IMAGE_LOGO_HEIGHT = Integer.parseInt(prop.getProperty("IMAGE_LOGO_HEIGHT"));
@@ -91,8 +94,13 @@ public class Main {
             System.out.println("NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR: " + NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR);
             System.out.println("NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR: " + NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR);
 
-            // LCompany logo specifications
-            System.out.println("Company logo specifications:");
+            // Tab Icons Specifications
+            System.out.println("Tab Icons Specifications:");
+            System.out.println("TAB_ICON_NAME: " + TAB_ICON_NAME);
+            System.out.println("\n");
+
+            // Company Logo Specifications
+            System.out.println("Company Logo Specifications:");
             System.out.println("IMAGE_LOGO: " + IMAGE_LOGO);
             System.out.println("IMAGE_LOGO_WIDTH: " + IMAGE_LOGO_WIDTH);
             System.out.println("IMAGE_LOGO_HEIGHT: " + IMAGE_LOGO_HEIGHT);
@@ -119,27 +127,23 @@ public class Main {
                 aa++;
             }
 
+            String TAB_ICON_NAME_TRIMMED = TAB_ICON_NAME.replaceAll(" ","");
+            String[] TAB_ICON_NAME_ALL = TAB_ICON_NAME_TRIMMED.split(",");
+
+
             JTabbedPane tabpane1 = new JTabbedPane();
             tabpane1.setBackground(new Color(0, 10, 52));
 
-            BuildDashboard[] BD3 = new BuildDashboard[aa];
-            JPanel[] jPanel3 = new JPanel[aa];
+            BuildDashboard[] BD = new BuildDashboard[aa];
+            JPanel[] JPanel = new JPanel[aa];
 
             System.out.println("aa is currently: " + String.valueOf(aa));
 
-
-//            JLabel myJLabel1 = new JLabel(arr2);
-
-            String[] arr4 = new String[aa];
-            arr4[0]="hdd.png";
-            arr4[1]="globe.png";
-            arr4[2]="house.png";
-
-            ImageIcon[] myIconCat4 = new ImageIcon[3];
+            ImageIcon[] TAB_ICON = new ImageIcon[3];
 
             for (int i = 0; i < aa; i++) {
 
-                BD3[i] = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+                BD[i] = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
                         NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
                         USER_DIR_SPREADSHEETS,
                         SPREADSHEET_NAME,
@@ -156,16 +160,13 @@ public class Main {
                         FRAME_TITLE,
                         USER_DIR_ICONS,
                         SPREADSHEET_ALL[i]);
-                jPanel3[i] = BD3[i].myPanelCat3[1];
-
-                myIconCat4[i] = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + arr4[i]);
-
-                Color myColorJButtonsBackground = new Color(0, 10, 52);
-
-
-                System.out.println("i is currently: " + String.valueOf(i));
-                tabpane1.addTab(" " + CATEGORY_NAMES[i] + " ", myIconCat4[i], jPanel3[i]);
+                JPanel[i] = BD[i].myPanelCat;
+                JPanel[i].setSize(300,300);
+                TAB_ICON[i] = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + TAB_ICON_NAME_ALL[i]);
+                Color myColorJButtonsBackground = new Color(0, 10, 150); ////frametab back
+                tabpane1.addTab(" " + CATEGORY_NAMES[i] + " ", TAB_ICON[i], JPanel[i]);
                 tabpane1.setBackground(myColorJButtonsBackground);
+                tabpane1.setSize(300,300);
             }
 
             JFrame myFrame;
