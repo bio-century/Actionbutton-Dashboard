@@ -1,45 +1,17 @@
 import com.formdev.flatlaf.FlatDarkLaf;
-import org.apache.commons.io.FileUtils;
 import packageBuildDashboard.BuildDashboard;
 import packageIconEditing.IconEditingImageTransform;
-//import packageSpreadsheet.SpreadsheetReturnDimensions;
-
 
 import java.awt.*;
 import java.io.*;
 import java.util.Properties;
-
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
-import javax.swing.plaf.InsetsUIResource;
-
 import static javax.swing.UIManager.*;
-
-
-
-
-
-
-import packageIconEditing.IconEditingImageTransform;
-//import packageJButtons.JButtonArray;
-import packageJButtons.JButtonsSetUpActionListener;
-import packageSpreadsheet.SpreadsheetReadCellData;
-//import packageSpreadsheet.SpreadsheetReturnDimensions;
-
-import javax.swing.*;
-import java.awt.Dimension;
 import java.awt.Color;
-import java.awt.*;
-
-import javax.swing.border.*;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.plaf.ColorUIResource;
-import javax.swing.plaf.InsetsUIResource;
-import javax.swing.UIManager;
 
 
 // sources:
@@ -56,9 +28,6 @@ public class Main {
     public static String SPREADSHEET_NAME = "\\BUTTON_AUTOSTART.xlsx";
 
     public static void main(String[] args) throws IOException {
-//        int[] SpreadSheetDimensions = SpreadsheetReturnDimensions.SpreadsheetReturnDimensions(USER_DIR_SPREADSHEETS,SPREADSHEET_NAME);
-//        System.out.println("ROWnumber:" + String.valueOf(SpreadSheetDimensions[0]));
-//        System.out.println("COLnumber:" + String.valueOf(SpreadSheetDimensions[1]));
 
         try {
             setLookAndFeel(new FlatDarkLaf());
@@ -150,69 +119,23 @@ public class Main {
                 aa++;
             }
 
-
-//            BuildDashboard BD = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
-//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
-//                    USER_DIR_SPREADSHEETS,
-//                    SPREADSHEET_NAME,
-//                    FONTNAME,
-//                    NUMBER_OF_ROWS,
-//                    NUMBER_OF_COLUMNS,
-//                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
-//                    IMAGE_LOGO_WIDTH,
-//                    IMAGE_LOGO_HEIGHT,
-//                    USER_DIR_IMAGES,
-//                    IMAGE_LOGO,
-//                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
-//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50,
-//                    FRAME_TITLE,
-//                    USER_DIR_ICONS);
-//            JPanel jPanel = BD.myPanelCat3[1];
-//
-//            BuildDashboard BD2 = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
-//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
-//                    USER_DIR_SPREADSHEETS,
-//                    SPREADSHEET_NAME,
-//                    FONTNAME,
-//                    NUMBER_OF_ROWS,
-//                    NUMBER_OF_COLUMNS,
-//                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
-//                    IMAGE_LOGO_WIDTH,
-//                    IMAGE_LOGO_HEIGHT,
-//                    USER_DIR_IMAGES,
-//                    IMAGE_LOGO,
-//                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
-//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50,
-//                    FRAME_TITLE,
-//                    USER_DIR_ICONS);
-//            JPanel jPanel2 = BD2.myPanelCat3[1];
-
-//            BD.BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
-//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
-//                    USER_DIR_SPREADSHEETS,
-//                    SPREADSHEET_NAME,
-//                    FONTNAME,
-//                    NUMBER_OF_ROWS,
-//                    NUMBER_OF_COLUMNS,
-//                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
-//                    IMAGE_LOGO_WIDTH,
-//                    IMAGE_LOGO_HEIGHT,
-//                    USER_DIR_IMAGES,
-//                    IMAGE_LOGO,
-//                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
-//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50,
-//                    FRAME_TITLE,
-//                    USER_DIR_ICONS);
             JTabbedPane tabpane1 = new JTabbedPane();
-            tabpane1.setBackground(new Color(76, 15, 200));
-
-//            tabpane1.addTab("  " + "three" + " ", jPanel);
-//            tabpane1.addTab("  " + "two" + " ", jPanel2);
+            tabpane1.setBackground(new Color(0, 10, 52));
 
             BuildDashboard[] BD3 = new BuildDashboard[aa];
             JPanel[] jPanel3 = new JPanel[aa];
 
             System.out.println("aa is currently: " + String.valueOf(aa));
+
+
+//            JLabel myJLabel1 = new JLabel(arr2);
+
+            String[] arr4 = new String[aa];
+            arr4[0]="hdd.png";
+            arr4[1]="globe.png";
+            arr4[2]="house.png";
+
+            ImageIcon[] myIconCat4 = new ImageIcon[3];
 
             for (int i = 0; i < aa; i++) {
 
@@ -235,14 +158,15 @@ public class Main {
                         SPREADSHEET_ALL[i]);
                 jPanel3[i] = BD3[i].myPanelCat3[1];
 
+                myIconCat4[i] = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + arr4[i]);
+
+                Color myColorJButtonsBackground = new Color(0, 10, 52);
+
+
                 System.out.println("i is currently: " + String.valueOf(i));
-                tabpane1.addTab("  " + "three" + " ", jPanel3[i]);
+                tabpane1.addTab(" " + CATEGORY_NAMES[i] + " ", myIconCat4[i], jPanel3[i]);
+                tabpane1.setBackground(myColorJButtonsBackground);
             }
-
-
-//            BD.myFrame
-
-//            return BD;
 
             JFrame myFrame;
             Color myColorJFrameBackground = new Color(0, 10, 52);
@@ -258,7 +182,6 @@ public class Main {
             myFrame.setTitle(FRAME_TITLE);
             myFrame.setResizable(false);
 
-
             JMenuBar menubar;
             menubar = new JMenuBar();
             menubar.setOpaque(true);
@@ -269,8 +192,6 @@ public class Main {
             myFrame.setJMenuBar(menubar);
             myFrame.setVisible(true);
 
-
-// insert myframe here...
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: FileNotFoundException");
             e.printStackTrace();

@@ -37,8 +37,8 @@ public class BuildDashboard {
     static Color myColorJButtonsBackground = new Color(0, 10, 52);
     static Color myColorJFrameBackground = new Color(0, 10, 52);
     public static Color myColorJTabbedPane = myColorJButtonsBackground;
+//    public static Color myColorJTabbedPaneFrame = new Color(76,15,200);
     public static Color myColorJTabbedPaneFrame = new Color(76,15,200);
-
 
     public BuildDashboard(int w, int h, String USER_DIR_SPREADSHEETS, String SPREADSHEET_NAME, String FONTNAME, int NUMBER_OF_ROWS,
                           int NUMBER_OF_COLUMNS, int[] SpreadSheetDimensions,
@@ -222,13 +222,13 @@ public class BuildDashboard {
         myFrame.setSize(WIDTH, HEIGHT);
         myFrame.setTitle(FRAME_TITLE);
         myFrame.setResizable(false);
+        myFrame.setBackground(new Color(200,100, 200));
 
 
-
-        myPanelJButtonArray.setBackground(myColorJTabbedPane);
+        myPanelJButtonArray.setBackground(new Color(200,100, 200));
 
         JTabbedPane tabpane = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
-        tabpane.setBackground(new Color(76,15, 200));
+        tabpane.setBackground(new Color(200,100, 200));
         UIManager.put("TabbedPane.contentBorderInsets", new InsetsUIResource(1, 0,0, 0));
         UIManager.put("TabbedPane.contentAreaColor", new ColorUIResource(myColorJTabbedPaneFrame));
         SwingUtilities.updateComponentTreeUI(tabpane);
@@ -241,7 +241,8 @@ public class BuildDashboard {
         JPanel myPanelNavigation = new JPanel(new BorderLayout());
         JLabel iconLabel = new JLabel(myImageLogo);
         iconLabel.setVerticalAlignment(JLabel.NORTH);
-        myPanelNavigation.setBackground(myColorJTabbedPane);
+//        myPanelNavigation.setBackground(myColorJTabbedPane);
+        myPanelNavigation.setBackground(new Color(200,100, 200));
         myPanelNavigation.add(iconLabel, BorderLayout.SOUTH);
 
         c.fill = GridBagConstraints.VERTICAL;
@@ -250,10 +251,15 @@ public class BuildDashboard {
         c.weighty = .01;
         c.gridx = 0;
         c.gridy = 0;
+
+
+        myPanelJButtonArray.setBackground(new Color(200,100, 200));
         myPanelCat1.add(myPanelJButtonArray, c);
+        myPanelCat1.setBackground(new Color(200,100, 200));
 
 
-
+        /////////////////////////////// der hier/////////////////!!!!!!!!!!!!
+        myPanelJButtonArray2.setBackground(new Color(200,100, 200));
 
         String arr1 = new String();
         String arr2 = new String();
@@ -299,75 +305,12 @@ public class BuildDashboard {
         myPanelCat3[0].setBackground(myColorJTabbedPane);
         myPanelCat3[1].add(myPanelNavigation, c);
         myPanelCat3[1].setBackground(myColorJTabbedPane);
+        myPanelCat3[1].setBackground(new Color(200,100, 200));
         myPanelCat3[2].add(myPanelNavigation, c);
         myPanelCat3[2].setBackground(myColorJTabbedPane);
 
         myPanelCat3[0].add(myPanelNavigation, c);
         myPanelCat3[0].setBackground(myColorJTabbedPane);
 
-
-
-        String[] arr4 = new String[3];
-        String[] arr5 = new String[3];
-        String[] arr6 = new String[3];
-        arr4[0]="hdd.png";
-        arr4[1]="globe.png";
-        arr4[2]="house.png";
-        arr5[0]="Tab1";
-        arr5[1]="Tab2";
-        arr5[2]="Tab2";
-        arr6[0]="category 1";
-        arr6[1]="category 2";
-        arr6[2]="category 3";
-
-
-        ImageIcon myIconCat2 = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + arr4[0]);
-        myJLabel1.setIcon(myIconCat);
-        ImageIcon myIconCat3 = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + arr4[1]);
-        myJLabel1.setIcon(myIconCat);
-        ImageIcon myIconCat4 = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + arr4[2]);
-        myJLabel1.setIcon(myIconCat);
-
-
-//        JTabbedPane tabpane1 = new JTabbedPane();
-//        tabpane1.setBackground(new Color(76,15, 200));
-//
-//
-//        JPanel panel1, panel2, panel3, panel4, panel5;
-//        panel1 = new JPanel();
-//        panel2 = new JPanel();
-//        panel3 = new JPanel();
-//        panel4 = new JPanel();
-//        panel5 = new JPanel();
-//
-//
-//        JButton myButtonstwo = new JButton("blah");
-//        panel1.add(myButtonstwo);
-//
-//        tabpane1.addTab("  " + "one" + " ", myIconCat2, myPanelCat3[0]);
-//        tabpane1.addTab("  " + "two" + " ", myIconCat2, panel1);
-//        tabpane1.addTab("  " + "three" + " ", myIconCat4, myPanelCat3[1]);
-//        tabpane1.addTab("  " + "four" + " ", myIconCat3, myPanelCat3[1]);
-//
-//
-//
-////        tabpane1.addTab("  " + "kljlkj" + " ", myIconCat2, myPanelCat3[0]);
-////        tabpane1.addTab("  " +  "zutuz" + " ", myIconCat3, myPanelCat3[1]);
-//
-//        myFrame.add(tabpane1, BorderLayout.CENTER);
-////        myFrame.add(tabpane1, BorderLayout.CENTER);
-////        myFrame.add(tabpane1, BorderLayout.CENTER);
-////        myFrame.add(tabpane2, BorderLayout.CENTER);
-////        myFrame.add(tabpane3, BorderLayout.CENTER);
-//
-////        myFrame.add(myPanelCat1, BorderLayout.CENTER);
-//
-//
-//
-//        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        myFrame.setJMenuBar(menubar);
-//        myFrame.setVisible(true);
-//
-////        return myPanelCat3[1];
     }
 }
