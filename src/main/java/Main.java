@@ -251,11 +251,16 @@ public class Main {
 
 
 
-            JTabbedPane myTabbedPane = new JTabbedPane();
+
+
+
 //            myTabbedPane.setBackground(new Color(100, 10, 52));
 
             BuildDashboard[] BD = new BuildDashboard[aa];
             JPanel[] JPanel = new JPanel[aa];
+
+            JTabbedPane myTabbedPane = new JTabbedPane();
+//            JTabbedPane[] myTabbedPane = new JTabbedPane[aa];
 
             System.out.println("aa is currently: " + String.valueOf(aa));
 
@@ -308,9 +313,27 @@ public class Main {
                 TAB_ICON[i] = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + TAB_ICON_NAME_ALL[i]);
                 UIManager.put("TabbedPane.selected", new Color(176,135,200));
 
+                System.out.println(String.valueOf(i));
 
 
-
+                int finalLl = i;
+//                JPanel[i].addMouseListener(new java.awt.event.MouseAdapter() {
+//                                    public void mouseEntered(java.awt.event.MouseEvent evt) {
+//                                        JPanel[finalLl].setBackground(Color.green);
+//                }
+//                public void mousePressed(java.awt.event.MouseEvent evt) {
+//                    JPanel[i].setBackground(new Color(
+//                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[0]),
+//                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[1]),
+//                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
+//                            )
+//                    );
+//                }
+//                    public void mouseExited(java.awt.event.MouseEvent evt) {
+//                        JPanel[finalLl].setBackground(Color.green
+//                        );
+//                    }
+//                });
 
 
                 myTabbedPane.addTab(" " + CATEGORY_NAMES[i] + " ", TAB_ICON[i], JPanel[i]);
@@ -321,38 +344,23 @@ public class Main {
                 ));
 
 
+//                myTabbedPane[i].addTab(" " + CATEGORY_NAMES[i] + " ", TAB_ICON[i], JPanel[i]);
+//                myTabbedPane[i].setBackground(new Color(
+//                        Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[0]),
+//                        Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[1]),
+//                        Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[2])
+//                ));
 
 
 
 
 
-
-                myTabbedPane.setSize(300,300);
+//                myTabbedPane[i].setSize(300,300);
             }
 
-            myTabbedPane.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseEntered(java.awt.event.MouseEvent evt) {
-                    myTabbedPane.setBackground(Color.green);
-                }
-                public void mousePressed(java.awt.event.MouseEvent evt) {
-                    myTabbedPane.setBackground(new Color(
-                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[0]),
-                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[1]),
-                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
-                            )
-                    );
-                }
-                public void mouseExited(java.awt.event.MouseEvent evt) {
-                    myTabbedPane.setBackground(new Color(
-                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[0]),
-                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[1]),
-                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[2])
-                            )
-                    );
-                }
-            });
 
 
+//            myTabbedPane.setBackground(Color.green);
 
 
 
@@ -363,17 +371,17 @@ public class Main {
             int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50;
 
             myFrame = new JFrame();
-            myFrame.getContentPane().setBackground(new Color(
-                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[0]),
-                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[1]),
-                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[2])
-            ));
-
-            myFrame.getContentPane().setForeground(new Color(
-                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[0]),
-                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[1]),
-                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[2])
-            ));
+//            myFrame.getContentPane().setBackground(new Color(
+//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[0]),
+//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[1]),
+//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[2])
+//            ));
+//
+//            myFrame.getContentPane().setForeground(new Color(
+//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[0]),
+//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[1]),
+//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[2])
+//            ));
 
             myFrame.setSize(WIDTH, HEIGHT);
             myFrame.setTitle(FRAME_TITLE);
@@ -382,12 +390,14 @@ public class Main {
             JMenuBar menubar;
             menubar = new JMenuBar();
             menubar.setOpaque(true);
+//            menubar.setBackground(Color.green);
             menubar.setBackground(Color.green);
-
+            menubar.setForeground(Color.green);
             myFrame.add(myTabbedPane, BorderLayout.CENTER);
 
-
-
+//            myFrame.add(myTabbedPane[0], BorderLayout.CENTER);
+//            myFrame.add(myTabbedPane[1], BorderLayout.CENTER);
+//            myFrame.add(myTabbedPane[2], BorderLayout.CENTER);
 
 
             myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
