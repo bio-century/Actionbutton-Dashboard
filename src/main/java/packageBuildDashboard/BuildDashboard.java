@@ -31,24 +31,51 @@ import javax.swing.UIManager;
 
 public class BuildDashboard {
 
-    private JFrame myFrame;
-
+//    public Bag myFrame;
+    public JFrame myFrame;
+    public JPanel[] myPanelCat3;
     static Color myColorJButtonsBackground = new Color(0, 10, 52);
     static Color myColorJFrameBackground = new Color(0, 10, 52);
     public static Color myColorJTabbedPane = myColorJButtonsBackground;
     public static Color myColorJTabbedPaneFrame = new Color(76,15,200);
 
 
-    public void DashboardBuild(int w, int h, String USER_DIR_SPREADSHEETS, String SPREADSHEET_NAME, String FONTNAME, int NUMBER_OF_ROWS,
-                               int NUMBER_OF_COLUMNS, int[] SpreadSheetDimensions,
-                               int IMAGE_LOGO_WIDTH,
-                               int IMAGE_LOGO_HEIGHT,
-                               String USER_DIR_IMAGES,
-                               String IMAGE_LOGO,
-                               int WIDTH,
-                               int HEIGHT,
-                               String FRAME_TITLE,
-                               String USER_DIR_ICONS) {
+    public BuildDashboard(int w, int h, String USER_DIR_SPREADSHEETS, String SPREADSHEET_NAME, String FONTNAME, int NUMBER_OF_ROWS,
+                          int NUMBER_OF_COLUMNS, int[] SpreadSheetDimensions,
+                          int IMAGE_LOGO_WIDTH,
+                          int IMAGE_LOGO_HEIGHT,
+                          String USER_DIR_IMAGES,
+                          String IMAGE_LOGO,
+                          int WIDTH,
+                          int HEIGHT,
+                          String FRAME_TITLE,
+                          String USER_DIR_ICONS) {
+
+
+//BuildJButtonArray BJBA = new BuildJButtonArray(USER_DIR_SPREADSHEETS,
+//        SPREADSHEET_NAME,
+//        USER_DIR_SPREADSHEETS,
+//        SPREADSHEET_NAME,
+//        FONTNAME,
+//        NUMBER_OF_ROWS,
+//        NUMBER_OF_COLUMNS,
+//        new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
+//        IMAGE_LOGO_WIDTH,
+//        IMAGE_LOGO_HEIGHT,
+//        USER_DIR_IMAGES,
+//        IMAGE_LOGO,
+//        WIDTH,
+//        HEIGHT,
+//        FRAME_TITLE,
+//        USER_DIR_ICONS);
+//        BJBA.BuildJButtonArray();
+
+//        myColorJButtonsBackground,
+//        myColorJTabbedPaneFrame,
+//        myColorJButtonsBackground
+
+
+
         String[][] myFieldnamesAll;
         myFieldnamesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
@@ -143,7 +170,7 @@ public class BuildDashboard {
 
 
 
-
+        myPanelCat3 = new JPanel[3];
 
         myFrame = new JFrame();
         myFrame.getContentPane().setBackground(myColorJFrameBackground);
@@ -162,6 +189,8 @@ public class BuildDashboard {
         myPanelJButtonArray2.setLayout(new GridLayout(SpreadSheetDimensions[0], SpreadSheetDimensions[1], 7, 2));
         myPanelCat2.setLayout(new GridLayout(1, SpreadSheetDimensions[1], 7, 2));
         myPanelJButtonArray2.setPreferredSize(new Dimension(640, 480));
+
+//        JLabel[] myLabels = BJBA.BuildJButtonArray();
 
         ii = 0;
         jj = 0;
@@ -248,7 +277,7 @@ public class BuildDashboard {
         menubar.setBackground(Color.green);
 
 
-        JPanel[] myPanelCat3 = new JPanel[3];
+//        JPanel[] myPanelCat3 = new JPanel[3];
         myPanelCat3[0]=myPanelCat1;
         myPanelCat3[1]=myPanelCat1;
         myPanelCat3[2]=myPanelCat1;
@@ -299,40 +328,45 @@ public class BuildDashboard {
         myJLabel1.setIcon(myIconCat);
 
 
-        JTabbedPane tabpane1 = new JTabbedPane();
-        tabpane1.setBackground(new Color(76,15, 200));
-
-
-        JPanel panel1, panel2, panel3, panel4, panel5;
-        panel1 = new JPanel();
-        panel2 = new JPanel();
-        panel3 = new JPanel();
-        panel4 = new JPanel();
-        panel5 = new JPanel();
-
-
-        JButton myButtonstwo = new JButton("blah");
-        panel1.add(myButtonstwo);
-
-        tabpane1.addTab("  " + "one" + " ", myIconCat2, myPanelCat3[0]);
-        tabpane1.addTab("  " + "two" + " ", myIconCat2, panel1);
-        tabpane1.addTab("  " + "three" + " ", myIconCat4, myPanelCat3[1]);
-        tabpane1.addTab("  " + "four" + " ", myIconCat3, myPanelCat3[1]);
-
-
-
-//        tabpane1.addTab("  " + "kljlkj" + " ", myIconCat2, myPanelCat3[0]);
-//        tabpane1.addTab("  " +  "zutuz" + " ", myIconCat3, myPanelCat3[1]);
-
-        myFrame.add(tabpane1, BorderLayout.CENTER);
+//        JTabbedPane tabpane1 = new JTabbedPane();
+//        tabpane1.setBackground(new Color(76,15, 200));
+//
+//
+//        JPanel panel1, panel2, panel3, panel4, panel5;
+//        panel1 = new JPanel();
+//        panel2 = new JPanel();
+//        panel3 = new JPanel();
+//        panel4 = new JPanel();
+//        panel5 = new JPanel();
+//
+//
+//        JButton myButtonstwo = new JButton("blah");
+//        panel1.add(myButtonstwo);
+//
+//        tabpane1.addTab("  " + "one" + " ", myIconCat2, myPanelCat3[0]);
+//        tabpane1.addTab("  " + "two" + " ", myIconCat2, panel1);
+//        tabpane1.addTab("  " + "three" + " ", myIconCat4, myPanelCat3[1]);
+//        tabpane1.addTab("  " + "four" + " ", myIconCat3, myPanelCat3[1]);
+//
+//
+//
+////        tabpane1.addTab("  " + "kljlkj" + " ", myIconCat2, myPanelCat3[0]);
+////        tabpane1.addTab("  " +  "zutuz" + " ", myIconCat3, myPanelCat3[1]);
+//
 //        myFrame.add(tabpane1, BorderLayout.CENTER);
-//        myFrame.add(tabpane1, BorderLayout.CENTER);
-//        myFrame.add(tabpane2, BorderLayout.CENTER);
-//        myFrame.add(tabpane3, BorderLayout.CENTER);
-
-//        myFrame.add(myPanelCat1, BorderLayout.CENTER);
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myFrame.setJMenuBar(menubar);
-        myFrame.setVisible(true);
+////        myFrame.add(tabpane1, BorderLayout.CENTER);
+////        myFrame.add(tabpane1, BorderLayout.CENTER);
+////        myFrame.add(tabpane2, BorderLayout.CENTER);
+////        myFrame.add(tabpane3, BorderLayout.CENTER);
+//
+////        myFrame.add(myPanelCat1, BorderLayout.CENTER);
+//
+//
+//
+//        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        myFrame.setJMenuBar(menubar);
+//        myFrame.setVisible(true);
+//
+////        return myPanelCat3[1];
     }
 }

@@ -1,14 +1,46 @@
 import com.formdev.flatlaf.FlatDarkLaf;
 import org.apache.commons.io.FileUtils;
 import packageBuildDashboard.BuildDashboard;
+import packageIconEditing.IconEditingImageTransform;
 //import packageSpreadsheet.SpreadsheetReturnDimensions;
 
 
+import java.awt.*;
 import java.io.*;
 import java.util.Properties;
 
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.InsetsUIResource;
+
 import static javax.swing.UIManager.*;
+
+
+
+
+
+
+import packageIconEditing.IconEditingImageTransform;
+//import packageJButtons.JButtonArray;
+import packageJButtons.JButtonsSetUpActionListener;
+import packageSpreadsheet.SpreadsheetReadCellData;
+//import packageSpreadsheet.SpreadsheetReturnDimensions;
+
+import javax.swing.*;
+import java.awt.Dimension;
+import java.awt.Color;
+import java.awt.*;
+
+import javax.swing.border.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.InsetsUIResource;
+import javax.swing.UIManager;
+
 
 // sources:
 // https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java
@@ -123,8 +155,7 @@ public class Main {
 
 
 
-            BuildDashboard BD = new BuildDashboard();
-            BD.DashboardBuild(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+            BuildDashboard BD = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
                     NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
                     USER_DIR_SPREADSHEETS,
                     SPREADSHEET_NAME,
@@ -141,7 +172,84 @@ public class Main {
                     FRAME_TITLE,
                     USER_DIR_ICONS);
 
+            BuildDashboard BD2 = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
+                    USER_DIR_SPREADSHEETS,
+                    SPREADSHEET_NAME,
+                    FONTNAME,
+                    NUMBER_OF_ROWS,
+                    NUMBER_OF_COLUMNS,
+                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
+                    IMAGE_LOGO_WIDTH,
+                    IMAGE_LOGO_HEIGHT,
+                    USER_DIR_IMAGES,
+                    IMAGE_LOGO,
+                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
+                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50,
+                    FRAME_TITLE,
+                    USER_DIR_ICONS);
 
+            JPanel jPanel = BD.myPanelCat3[1];
+
+
+            JPanel jPanel2 = BD2.myPanelCat3[1];
+//            BD.BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
+//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
+//                    USER_DIR_SPREADSHEETS,
+//                    SPREADSHEET_NAME,
+//                    FONTNAME,
+//                    NUMBER_OF_ROWS,
+//                    NUMBER_OF_COLUMNS,
+//                    new int[]{NUMBER_OF_ROWS, NUMBER_OF_COLUMNS},
+//                    IMAGE_LOGO_WIDTH,
+//                    IMAGE_LOGO_HEIGHT,
+//                    USER_DIR_IMAGES,
+//                    IMAGE_LOGO,
+//                    NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400,
+//                    NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50,
+//                    FRAME_TITLE,
+//                    USER_DIR_ICONS);
+
+            JTabbedPane tabpane1 = new JTabbedPane();
+            tabpane1.setBackground(new Color(76,15, 200));
+            tabpane1.addTab("  " + "three" + " ", jPanel);
+            tabpane1.addTab("  " + "two" + " ", jPanel2);
+
+
+//            BD.myFrame
+
+//            return BD;
+
+            JFrame myFrame;
+            Color myColorJFrameBackground = new Color(0, 10, 52);
+
+            int WIDTH = NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400;
+            int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR+50;
+
+
+            myFrame = new JFrame();
+            myFrame.getContentPane().setBackground(myColorJFrameBackground);
+
+            myFrame.setSize(WIDTH, HEIGHT);
+            myFrame.setTitle(FRAME_TITLE);
+            myFrame.setResizable(false);
+
+
+            JMenuBar menubar;
+            menubar = new JMenuBar();
+            menubar.setOpaque(true);
+            menubar.setBackground(Color.green);
+            myFrame.add(tabpane1, BorderLayout.CENTER);
+
+        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myFrame.setJMenuBar(menubar);
+        myFrame.setVisible(true);
+
+
+
+
+
+// insert myframe here...
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: FileNotFoundException");
             e.printStackTrace();
