@@ -50,10 +50,25 @@ public class BuildDashboard {
         JButton[] myButtons = new JButton[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
         JLabel[] myLabels = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
         JLabel[] myLabelsBlanks = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
+        JLabel[] myLabelstext = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
+
+
 
         String[][] myCategoriesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myUrlAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myColorAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+
+
+        ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
+
+        JPanel myPanelNavigation = new JPanel(new BorderLayout());
+        JLabel iconLabel = new JLabel(myImageLogo);
+        iconLabel.setVerticalAlignment(JLabel.NORTH);
+        myPanelNavigation.setBackground(new Color(
+                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[0]),
+                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[1]),
+                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[2])
+        ));
 
 
         SpreadsheetReadCellData rc = new SpreadsheetReadCellData();
@@ -65,6 +80,9 @@ public class BuildDashboard {
         int ii = 0;
         int jj = 0;
         int kk = 0;
+//        JLabel label = new JLabel("Move the mouse moves over this JLabel");
+//        JLabel label23 = new JLabel("Move JLabel");
+
 
         for (int i = 0; i < NUMBER_OF_ROWS; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
@@ -119,10 +137,13 @@ public class BuildDashboard {
                     myButtons[kk].setForeground(new Color(values_int1, values_int2, values_int3));
                     myButtons[kk].setFont(new Font(FONTNAME, Font.PLAIN, 14));
                     myButtons[kk].setText("   " + myFieldnamesAll[i][j]);
+//                    myLabelstext[kk]  = new JLabel(myFieldnamesAll[i][j]);
+
 
                     Border border = new LineBorder(new Color(values_int1, values_int2, values_int3), 1);
                     myButtons[kk].setBorder(border);
 
+                    myButtons[kk].setToolTipText(String.valueOf(myFieldnamesAll[i][j]));
 
                     int finalLl = kk;
                     myButtons[kk].addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,8 +152,13 @@ public class BuildDashboard {
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[0]),
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[1]),
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[2])
-                                    )
-                            );
+                                    ));
+
+//                            Color c = label.getBackground();
+//                            label.setBackground(label.getForeground());
+//                            label.setForeground(c);
+                            // https://www.tutorialspoint.com/how-can-we-detect-an-event-when-the-mouse-moves-over-any-component-in-java
+
                         }
                         public void mousePressed(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
@@ -141,6 +167,17 @@ public class BuildDashboard {
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
                                     )
                             );
+//                            myPanelNavigation.add(myLabelstext[finalLl], BorderLayout.CENTER);
+                        }
+
+                        public void mouseReleased(java.awt.event.MouseEvent evt) {
+                            myButtons[finalLl].setBackground(new Color(
+                                            Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[0]),
+                                            Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[1]),
+                                            Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
+                                    )
+                            );
+//                            myPanelNavigation.remove(myLabelstext[finalLl], BorderLayout.CENTER);
                         }
                         public void mouseExited(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
@@ -149,7 +186,15 @@ public class BuildDashboard {
                                             Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[2])
                                     )
                             );
+//                            myPanelNavigation.remove(myLabelstext[finalLl]);
                         }
+
+//                        public void mouseWheelMoved(java.awt.event.MouseEvent evt) {
+//                            myPanelNavigation.remove(myLabelstext[finalLl]);
+//                        }
+
+//                        setLocationRelativeTo(null);
+//                        setVisible(true);
                     });
                     kk++;
                 }
@@ -190,23 +235,31 @@ public class BuildDashboard {
         }
         myPanelJButtonArray.setSize(500,500);
 
-        JTabbedPane tabpane = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
-        UIManager.put("TabbedPane.contentBorderInsets", new InsetsUIResource(1, 0,0, 0));
-        SwingUtilities.updateComponentTreeUI(tabpane);
+//        JTabbedPane tabpane = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
+//        UIManager.put("TabbedPane.contentBorderInsets", new InsetsUIResource(1, 0,0, 0));
+//        SwingUtilities.updateComponentTreeUI(tabpane);
 
         JPanel myPanelCat = new JPanel();
         myPanelCat.setLayout(new GridBagLayout());
 
-        ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
 
-        JPanel myPanelNavigation = new JPanel(new BorderLayout());
-        JLabel iconLabel = new JLabel(myImageLogo);
-        iconLabel.setVerticalAlignment(JLabel.NORTH);
-        myPanelNavigation.setBackground(new Color(
-                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[0]),
-                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[1]),
-                Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[2])
-        ));
+
+
+
+
+
+
+
+
+
+
+
+
+//        JLabel iconLabel3 = new JLabel("jjkhlkgljhkfhg jhgk");
+//        JLabel iconLabel3 = new JLabel(label);
+
+//        myPanelNavigation.add(iconLabel3, BorderLayout.CENTER);
+//        myPanelNavigation.add(label, BorderLayout.CENTER);
 
         myPanelNavigation.add(iconLabel, BorderLayout.SOUTH);
 
@@ -226,7 +279,7 @@ public class BuildDashboard {
         ));
 
         Font myFontTabTitle = new Font(FONTNAME, Font.PLAIN, 22);
-        tabpane.setFont(myFontTabTitle);
+//        tabpane.setFont(myFontTabTitle);
 
         this.myPanelCat = myPanelCat;
 
