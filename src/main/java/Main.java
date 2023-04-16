@@ -102,11 +102,6 @@ public class Main {
 
 
 
-
-
-
-
-
             // Read In Configuration File
             String PATH_CONFIG_FILE = USER_DIR + "\\src\\main\\resources\\config.properties";
             FileInputStream propsInput = new FileInputStream(PATH_CONFIG_FILE);
@@ -247,12 +242,6 @@ public class Main {
                 System.out.println(SPREADSHEET_ALL[aa]);
                 aa++;
             }
-
-
-
-
-
-
 
 //            myTabbedPane.setBackground(new Color(100, 10, 52));
 

@@ -34,11 +34,11 @@ public class JButtonsSetUpActionListener {
                                 System.out.println("URISyntaxException ex");
                             }
                         } else {
-                            System.out.println(fieldnamesall);
+//                            System.out.println(fieldnamesall);
                             String tmp;
                             tmp = URLall.replace("\\", "\\\\");
-                            System.out.println(tmp);
-                            System.out.println(URLall);
+//                            System.out.println(tmp);
+//                            System.out.println(URLall);
                             Desktop desktop = null;
                             desktop = Desktop.getDesktop();
                             try {
