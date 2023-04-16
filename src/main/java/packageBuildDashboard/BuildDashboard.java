@@ -189,12 +189,6 @@ public class BuildDashboard {
 //                            myPanelNavigation.remove(myLabelstext[finalLl]);
                         }
 
-//                        public void mouseWheelMoved(java.awt.event.MouseEvent evt) {
-//                            myPanelNavigation.remove(myLabelstext[finalLl]);
-//                        }
-
-//                        setLocationRelativeTo(null);
-//                        setVisible(true);
                     });
                     kk++;
                 }

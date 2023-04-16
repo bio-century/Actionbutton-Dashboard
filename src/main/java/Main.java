@@ -37,70 +37,6 @@ public class Main {
 
         try {
 
-//            UIManager.put( "control" , Color.green );
-//            UIManager.put( "nimbusAlertYellow" , Color.green );
-//            UIManager.put( "nimbusBase" , Color.green );
-//            UIManager.put( "nimbusDisabledText" , Color.green );
-//            UIManager.put( "nimbusFocus" , Color.green );
-//            UIManager.put( "nimbusGreen" , Color.green );
-//            UIManager.put( "nimbusInfoBlue" , Color.green );
-//            UIManager.put( "nimbusRed",Color.green );
-//            UIManager.put( "nimbusSelectionBackground",
-//                    Color.green );
-//
-//            UIManager.put( "background" ,Color.green );
-//            UIManager.put( "controlDkShadow" , Color.green );
-//            UIManager.put( "controlShadow", Color.green );
-//            UIManager.put( "desktop", Color.green );
-//            UIManager.put( "menu", Color.green );
-//            UIManager.put( "nimbusBorder", Color.green );
-//            UIManager.put( "nimbusSelection", Color.green );
-//            UIManager.put( "textBackground", Color.green );
-//            UIManager.put( "textHighlight", Color.green );
-//            UIManager.put( "textInactiveText", Color.green );
-//
-//            // panel
-//            UIManager.put( "Panel.background", Color.green );
-//            UIManager.put( "Panel.disabled", Color.green );
-//            UIManager.put( "Panel.font", Color.green );
-//            UIManager.put( "Panel.opaque", true );
-//
-//            // button
-//            UIManager.put( "Button.background",Color.green );
-//            UIManager.put( "Button.disabled", Color.green );
-//            UIManager.put( "Button.disabledText", Color.green );
-////            UIManager.put( "Button.font", UIConstants.DEFAULT_FONT );
-//
-//            // menu
-//            UIManager.put( "Menu.background", Color.green );
-//            UIManager.put( "Menu.disabled",Color.green );
-//            UIManager.put( "Menu.disabledText", Color.green );
-////            UIManager.put( "Menu.font", UIConstants.MENU_FONT );
-//            UIManager.put( "Menu.foreground", Color.green );
-//            UIManager.put( "Menu[Disabled].textForeground",
-//                    Color.green );
-//            UIManager.put( "Menu[Enabled].textForeground", Color.green );
-//            UIManager.put( "MenuBar.background", Color.green );
-//            UIManager.put( "MenuBar.disabled", Color.green );
-////            UIManager.put( "MenuBar.font", UIConstants.MENU_FONT );
-//            UIManager.put( "MenuBar:Menu[Disabled].textForeground",
-//                    Color.green );
-//            UIManager.put( "MenuBar:Menu[Enabled].textForeground",
-//                    Color.green );
-//            UIManager.put( "MenuItem.background", Color.green );
-//            UIManager.put( "MenuItem.disabled", Color.green );
-//            UIManager.put( "MenuItem.disabledText", Color.green );
-////            UIManager.put( "MenuItem.font", UIConstants.MENU_FONT );
-//            UIManager.put( "MenuItem.foreground", Color.green );
-//            UIManager.put( "MenuItem[Disabled].textForeground",
-//                    Color.green );
-//            UIManager.put( "MenuItem[Enabled].textForeground",
-//                    Color.green );
-//
-//            // tree
-//            UIManager.put( "Tree.background", Color.green );
-
-
 
             // Read In Configuration File
             String PATH_CONFIG_FILE = USER_DIR + "\\src\\main\\resources\\config.properties";
@@ -279,23 +215,6 @@ public class Main {
                         MY_COLOR_JTAB_BACKGROUND_ALL
                         );
 
-//                UIManager.put("ToggleButton.contentMargins", Color.green);
-//                UIManager.put("TabbedPane.extendTabsToBase", Color.green);
-//                UIManager.put("TabbedPane.foreground", Color.green);
-//                UIManager.put("TabbedPane.highlight", Color.green);
-//                UIManager.put("TabbedPane.isTabRollover", Color.green);
-//                UIManager.put("TabbedPane.shadow", Color.green);
-//                UIManager.put("TabbedPane.tabOverlap", Color.green);
-//                UIManager.put("InternalFrame.background", Color.green);
-//                UIManager.put("InternalFrame.foreground", Color.green);
-//                UIManager.put("InternalFrameTitlePane.background", Color.green);
-//                UIManager.put("InternalFrameTitlePane.contentMargins", Color.green);
-//                UIManager.put("InternalFrameTitlePane.disabled", Color.green);
-//                UIManager.put("InternalFrameTitlePane.foreground", Color.green);
-//                UIManager.put("", Color.green);
-//                UIManager.put("", Color.green);
-//                UIManager.put("", Color.green);
-
                 UIManager.put("SplitPane.border", Color.blue);
                 JPanel[i] = BD[i].myPanelCat;
                 JPanel[i].setSize(300,300);
@@ -305,26 +224,6 @@ public class Main {
                 System.out.println(String.valueOf(i));
 
 
-                int finalLl = i;
-//                JPanel[i].addMouseListener(new java.awt.event.MouseAdapter() {
-//                                    public void mouseEntered(java.awt.event.MouseEvent evt) {
-//                                        JPanel[finalLl].setBackground(Color.green);
-//                }
-//                public void mousePressed(java.awt.event.MouseEvent evt) {
-//                    JPanel[i].setBackground(new Color(
-//                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[0]),
-//                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[1]),
-//                                    Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
-//                            )
-//                    );
-//                }
-//                    public void mouseExited(java.awt.event.MouseEvent evt) {
-//                        JPanel[finalLl].setBackground(Color.green
-//                        );
-//                    }
-//                });
-
-
                 myTabbedPane.addTab(" " + CATEGORY_NAMES[i] + " ", TAB_ICON[i], JPanel[i]);
                 myTabbedPane.setBackground(new Color(
                         Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[0]),
@@ -332,27 +231,7 @@ public class Main {
                         Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[2])
                 ));
 
-
-//                myTabbedPane[i].addTab(" " + CATEGORY_NAMES[i] + " ", TAB_ICON[i], JPanel[i]);
-//                myTabbedPane[i].setBackground(new Color(
-//                        Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[0]),
-//                        Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[1]),
-//                        Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[2])
-//                ));
-
-
-
-
-
-//                myTabbedPane[i].setSize(300,300);
             }
-
-
-
-//            myTabbedPane.setBackground(Color.green);
-
-
-
 
             JFrame myFrame;
 
@@ -360,37 +239,16 @@ public class Main {
             int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50;
 
             myFrame = new JFrame();
-//            myFrame.getContentPane().setBackground(new Color(
-//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[0]),
-//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[1]),
-//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[2])
-//            ));
-//
-//            myFrame.getContentPane().setForeground(new Color(
-//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[0]),
-//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[1]),
-//                    Integer.parseInt(MY_FRAME_BACKGROUND_ALL[2])
-//            ));
 
             myFrame.setSize(WIDTH, HEIGHT);
             myFrame.setTitle(FRAME_TITLE);
             myFrame.setResizable(false);
 
-            JMenuBar menubar;
-            menubar = new JMenuBar();
-            menubar.setOpaque(true);
-//            menubar.setBackground(Color.green);
-            menubar.setBackground(Color.green);
-            menubar.setForeground(Color.green);
-            myFrame.add(myTabbedPane, BorderLayout.CENTER);
 
-//            myFrame.add(myTabbedPane[0], BorderLayout.CENTER);
-//            myFrame.add(myTabbedPane[1], BorderLayout.CENTER);
-//            myFrame.add(myTabbedPane[2], BorderLayout.CENTER);
+            myFrame.add(myTabbedPane, BorderLayout.CENTER);
 
 
             myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            myFrame.setJMenuBar(menubar);
             myFrame.setVisible(true);
 
         } catch (FileNotFoundException e) {
