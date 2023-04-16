@@ -12,9 +12,6 @@ import java.awt.*;
 import javax.swing.border.*;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.plaf.InsetsUIResource;
-import javax.swing.UIManager;
 
 // sources:
 // https://www.youtube.com/watch?v=816wduoH9eY
@@ -41,7 +38,8 @@ public class BuildDashboard {
                           String[] MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL,
                           String[] MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL,
                           String[] MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL,
-                          String[] MY_COLOR_JTAB_BACKGROUND_ALL
+                          String[] MY_COLOR_JTAB_BACKGROUND_ALL,
+                          String MOUSEOVER_TEXT
     ) {
 
         String[][] myFieldnamesAll;
@@ -57,7 +55,7 @@ public class BuildDashboard {
         String[][] myCategoriesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myUrlAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myColorAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
-
+        String[][] myMouserOverText = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
         ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
 
@@ -71,7 +69,7 @@ public class BuildDashboard {
         ));
 
 
-        SpreadsheetReadCellData rc = new SpreadsheetReadCellData();
+        SpreadsheetReadCellData MySpreadsheet = new SpreadsheetReadCellData();
         Integer[] ColRowCounts = new Integer[NUMBER_OF_COLUMNS];
         for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
             ColRowCounts[j] = 0;
@@ -87,10 +85,19 @@ public class BuildDashboard {
         for (int i = 0; i < NUMBER_OF_ROWS; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
                 ColRowCounts[j] = 0;
-                myFieldnamesAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 0, 1);
-                myCategoriesAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 1, 1);
-                myUrlAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 2, 1);
-                myColorAll[i][j] = rc.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 3, 1);
+//                myFieldnamesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 0, 1);
+//                myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 1, 1);
+//                myUrlAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 2, 1);
+//                myColorAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 3, 1);
+//                System.out.println(SPREADSHEET_ALL);
+                myFieldnamesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "fieldnames");
+                myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "category");
+                myUrlAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "URL");
+                myColorAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "color");
+                if (MOUSEOVER_TEXT == "no") {
+                    myMouserOverText[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "mouseover text");
+                }
+
                 if (myFieldnamesAll[i][j] == "") {
                 } else {
                     ColRowCounts[j] = ColRowCounts[j] + 1;
@@ -98,9 +105,9 @@ public class BuildDashboard {
 
                 if (j < NUMBER_OF_COLUMNS && i == 0) {
                     String colorallfg;
-                    colorallfg = rc.ReadSpreadsheet(SPREADSHEET_ALL, 1, j, 3, 1);
+                    colorallfg = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, 1, j, "color");
                     String[] mySpreadSheetColorRGB = colorallfg.split(",");
-
+//                    String[] mySpreadSheetColorRGB = myColorAll[i][j].split(",");
                     int mySpreadSheetColorR;
                     int mySpreadSheetColorG;
                     int mySpreadSheetColorB;

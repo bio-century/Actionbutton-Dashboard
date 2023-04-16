@@ -16,7 +16,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 // https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
 
 public class SpreadsheetReadCellData {
-    public String ReadSpreadsheet(String SPREADSHEET_NAME, int vRow, int vColumn, int vsheet, int wbook) {
+//    public String ReadSpreadsheet(String SPREADSHEET_NAME, int vRow, int vColumn, int vsheet, int wbook) {
+    public String ReadSpreadsheet(String SPREADSHEET_NAME, int vRow, int vColumn, String vsheet) {
         String value = null;
         Workbook wb = null;
         try {
@@ -28,7 +29,20 @@ public class SpreadsheetReadCellData {
             e1.printStackTrace();
         }
 
-        Sheet sheet = wb.getSheetAt(vsheet);
+
+
+
+
+//        spreadsheet = workbook.getSheet("sheet1");
+        Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
+
+        // https://stackoverflow.com/questions/43645607/java-check-workbook-contains-a-specific-spreadsheet-or-not-using-apache-poi
+        // Check if the workbook is empty or not
+        if (wb.getSheet(vsheet) == null) {
+            // Create new sheet to the workbook if empty
+            sheet = wb.createSheet(vsheet);
+        }
+
         Row row = sheet.getRow(vRow);
         Cell cell = row.getCell(vColumn);
         if (cell == null) {
@@ -36,6 +50,8 @@ public class SpreadsheetReadCellData {
         } else {
             value = cell.getStringCellValue();
         }
+
+
         return value;
     }
 }

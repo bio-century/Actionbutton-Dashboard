@@ -36,7 +36,8 @@ public class Main {
         }
 
         try {
-
+            String MOUSEOVER_TEXT = "yes";
+//            String MOUSEOVER_TEXT = "no";
 
             // Read In Configuration File
             String PATH_CONFIG_FILE = USER_DIR + "\\src\\main\\resources\\config.properties";
@@ -212,7 +213,8 @@ public class Main {
                         MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL,
                         MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL,
                         MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL,
-                        MY_COLOR_JTAB_BACKGROUND_ALL
+                        MY_COLOR_JTAB_BACKGROUND_ALL,
+                        MOUSEOVER_TEXT
                         );
 
                 UIManager.put("SplitPane.border", Color.blue);
