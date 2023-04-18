@@ -1,13 +1,17 @@
 package packageSpreadsheet;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import java.io.*;
+
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+//package com.bethecoder.tutorials.jexcelapi.read;
+
+import java.io.File;
+import java.io.IOException;
+
+//import jxl.Workbook;
+//import jxl.read.biff.BiffException;
 
 // sources:
 // https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
@@ -23,6 +27,63 @@ public class SpreadsheetReadCellData {
         try {
             FileInputStream fis = new FileInputStream(SPREADSHEET_NAME);
             wb = new XSSFWorkbook(fis);
+
+
+            //        spreadsheet = workbook.getSheet("sheet1");
+
+
+
+
+
+
+//            wb.getAllNames();//    getSheet(vsheet).exists()
+
+//            Sheet sheet2 = wb.createSheet("test");
+            // https://stackoverflow.com/questions/43645607/java-check-workbook-contains-a-specific-spreadsheet-or-not-using-apache-poi
+            // Check if the workbook is empty or not
+//        if (wb.getSheet(vsheet) == null) {
+            // Create new sheet to the workbook if empty
+//            sheet2 = wb.createSheet("test");
+//        }
+
+
+            int numberOfSheets = wb.getNumberOfSheets();
+            System.out.println("Total Number of Sheets: " + numberOfSheets);
+            String sheetNames;//    getSheetNames();
+            int testavailable = 0;
+
+            for (int i = 0 ; i < numberOfSheets; i ++ ) {
+                sheetNames = wb.getSheetName(i);
+
+                if (sheetNames.indexOf("test") ==0) {
+                    testavailable = 1;
+                }
+                System.out.println("tA " + sheetNames);
+                System.out.println("tA " + testavailable);
+            }
+            Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
+
+            System.out.println("tA " + testavailable);
+            if (testavailable == 0) {
+                OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
+
+                Sheet sheet2 = wb.createSheet("test");
+                wb.write(fileOut);
+            }
+
+
+            Row row = sheet.getRow(vRow);
+            if (row != null) {
+                Cell cell = row.getCell(vColumn);
+                if (cell == null) {
+                    value = "";
+                } else {
+                    value = cell.getStringCellValue();
+                }
+            } else {
+                value = "";
+            }
+//
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e1) {
@@ -31,25 +92,6 @@ public class SpreadsheetReadCellData {
 
 
 
-
-
-//        spreadsheet = workbook.getSheet("sheet1");
-        Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
-
-        // https://stackoverflow.com/questions/43645607/java-check-workbook-contains-a-specific-spreadsheet-or-not-using-apache-poi
-        // Check if the workbook is empty or not
-        if (wb.getSheet(vsheet) == null) {
-            // Create new sheet to the workbook if empty
-            sheet = wb.createSheet(vsheet);
-        }
-
-        Row row = sheet.getRow(vRow);
-        Cell cell = row.getCell(vColumn);
-        if (cell == null) {
-            value = "";
-        } else {
-            value = cell.getStringCellValue();
-        }
 
 
         return value;

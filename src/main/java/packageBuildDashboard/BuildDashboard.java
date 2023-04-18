@@ -57,6 +57,9 @@ public class BuildDashboard {
         String[][] myColorAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myMouserOverText = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
+        String[][] myTestAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+
+
         ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
 
         JPanel myPanelNavigation = new JPanel(new BorderLayout());
@@ -94,6 +97,9 @@ public class BuildDashboard {
                 myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "category");
                 myUrlAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "URL");
                 myColorAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "color");
+
+                myTestAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "test");
+
                 if (MOUSEOVER_TEXT == "no") {
                     myMouserOverText[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "mouseover text");
                 }
@@ -150,7 +156,9 @@ public class BuildDashboard {
                     Border border = new LineBorder(new Color(values_int1, values_int2, values_int3), 1);
                     myButtons[kk].setBorder(border);
 
-                    myButtons[kk].setToolTipText(String.valueOf(myFieldnamesAll[i][j]));
+                    if (String.valueOf(myTestAll[i][j]) != "") {
+                        myButtons[kk].setToolTipText(String.valueOf(myTestAll[i][j]));
+                    }
 
                     int finalLl = kk;
                     myButtons[kk].addMouseListener(new java.awt.event.MouseAdapter() {
