@@ -87,6 +87,7 @@ public class BuildDashboard {
                 Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[1]),
                 Integer.parseInt(MY_COLOR_LOGO_BACKGROUND_ALL[2])
         ));
+        myPanelNavigation.add(new JLabel("", JLabel.CENTER), BorderLayout.CENTER);
 
 
         SpreadsheetReadCellData MySpreadsheet = new SpreadsheetReadCellData();
@@ -179,13 +180,19 @@ public class BuildDashboard {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (02.02)                   Define JButton-Colors on Mouse-Events                           //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    int finalI = i;
+                    int finalJ = j;
                     myButtons[kk].addMouseListener(new java.awt.event.MouseAdapter() {
+
                         public void mouseEntered(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[0]),
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[1]),
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[2])
                                     ));
+//                            myPanelNavigation.   setLayout(new JLabel(String.valueOf(myTestAll[finalI][finalJ]), JLabel.CENTER), BorderLayout.CENTER);
+//                            myPanelNavigation.remove(1);
+//                            myPanelNavigation.add(new JLabel(String.valueOf(myTestAll[finalI][finalJ]), JLabel.CENTER), BorderLayout.CENTER);
                         }
                         public void mousePressed(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
@@ -211,6 +218,8 @@ public class BuildDashboard {
                                             Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[2])
                                     )
                             );
+//                            myPanelNavigation.remove(1);
+//                            myPanelNavigation.add(new JLabel("", JLabel.CENTER), BorderLayout.CENTER);
                         }
 
                     });

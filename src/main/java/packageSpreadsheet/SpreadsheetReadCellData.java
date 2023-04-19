@@ -63,7 +63,7 @@ public class SpreadsheetReadCellData {
             }
             Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
 
-            System.out.println("tA " + testavailable);
+//            System.out.println("tA " + testavailable);
             if (testavailable == 0) {
                 OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
 
