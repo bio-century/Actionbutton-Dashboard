@@ -129,7 +129,9 @@ public class BuildDashboard {
                     int mySpreadSheetColorR;
                     int mySpreadSheetColorG;
                     int mySpreadSheetColorB;
-
+                    System.out.println(mySpreadSheetColorRGB[0]);
+                    System.out.println(mySpreadSheetColorRGB[1]);
+                    System.out.println(mySpreadSheetColorRGB[2]);
                     mySpreadSheetColorR = Integer.parseInt(mySpreadSheetColorRGB[0]);
                     mySpreadSheetColorG = Integer.parseInt(mySpreadSheetColorRGB[1]);
                     mySpreadSheetColorB = Integer.parseInt(mySpreadSheetColorRGB[2]);

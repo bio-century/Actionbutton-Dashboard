@@ -48,7 +48,7 @@ public class SpreadsheetReadCellData {
 
 
             int numberOfSheets = wb.getNumberOfSheets();
-            System.out.println("Total Number of Sheets: " + numberOfSheets);
+//            System.out.println("Total Number of Sheets: " + numberOfSheets);
             String sheetNames;//    getSheetNames();
             int testavailable = 0;
 
@@ -58,8 +58,8 @@ public class SpreadsheetReadCellData {
                 if (sheetNames.indexOf("test") ==0) {
                     testavailable = 1;
                 }
-                System.out.println("tA " + sheetNames);
-                System.out.println("tA " + testavailable);
+//                System.out.println("tA " + sheetNames);
+//                System.out.println("tA " + testavailable);
             }
             Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
 
