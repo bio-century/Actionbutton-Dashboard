@@ -1,3 +1,12 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (00)                                      BuildDashboard                                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Access: Main -> BuildDashboard
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (01)                                      Package Import                                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
 package packageBuildDashboard;
 
 import packageIconEditing.IconEditingImageTransform;
@@ -13,18 +22,23 @@ import javax.swing.border.*;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-// sources:
+// Sources:
 // https://www.youtube.com/watch?v=816wduoH9eY
 // https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
 // https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
 // https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 // https://stackoverflow.com/questions/57075145/what-element-controls-the-color-of-the-thin-strip-between-jpanel-and-jtabbedpane
-//https://stackoverflow.com/questions/15694107/how-to-layout-multiple-panels-on-a-jframe-java
+// https://stackoverflow.com/questions/15694107/how-to-layout-multiple-panels-on-a-jframe-java
+// https://www.tutorialspoint.com/how-can-we-detect-an-event-when-the-mouse-moves-over-any-component-in-java
 
 public class BuildDashboard {
 
     public JPanel myPanelCat;
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (02)                                     Build Dashboard                                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
     public BuildDashboard(int w, int h, String USER_DIR_SPREADSHEETS, String SPREADSHEET_NAME, String FONTNAME, int NUMBER_OF_ROWS,
                           int NUMBER_OF_COLUMNS, int[] SpreadSheetDimensions,
                           int IMAGE_LOGO_WIDTH,
@@ -42,6 +56,9 @@ public class BuildDashboard {
                           String MOUSEOVER_TEXT
     ) {
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (02.01)                       Read-In all Spreadsheet Cells                               //
+////////////////////////////////////////////////////////////////////////////////////////////////////
         String[][] myFieldnamesAll;
         myFieldnamesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
@@ -88,11 +105,6 @@ public class BuildDashboard {
         for (int i = 0; i < NUMBER_OF_ROWS; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
                 ColRowCounts[j] = 0;
-//                myFieldnamesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 0, 1);
-//                myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 1, 1);
-//                myUrlAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 2, 1);
-//                myColorAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, 3, 1);
-//                System.out.println(SPREADSHEET_ALL);
                 myFieldnamesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "fieldnames");
                 myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "category");
                 myUrlAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "URL");
@@ -161,6 +173,10 @@ public class BuildDashboard {
                     }
 
                     int finalLl = kk;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (02.02)                   Define JButton-Colors on Mouse-Events                           //
+////////////////////////////////////////////////////////////////////////////////////////////////////
                     myButtons[kk].addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseEntered(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
@@ -168,12 +184,6 @@ public class BuildDashboard {
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[1]),
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[2])
                                     ));
-
-//                            Color c = label.getBackground();
-//                            label.setBackground(label.getForeground());
-//                            label.setForeground(c);
-                            // https://www.tutorialspoint.com/how-can-we-detect-an-event-when-the-mouse-moves-over-any-component-in-java
-
                         }
                         public void mousePressed(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
@@ -182,7 +192,6 @@ public class BuildDashboard {
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
                                     )
                             );
-//                            myPanelNavigation.add(myLabelstext[finalLl], BorderLayout.CENTER);
                         }
 
                         public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -192,7 +201,6 @@ public class BuildDashboard {
                                             Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_PRESSED_ALL[2])
                                     )
                             );
-//                            myPanelNavigation.remove(myLabelstext[finalLl], BorderLayout.CENTER);
                         }
                         public void mouseExited(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
@@ -201,7 +209,6 @@ public class BuildDashboard {
                                             Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[2])
                                     )
                             );
-//                            myPanelNavigation.remove(myLabelstext[finalLl]);
                         }
 
                     });
@@ -218,6 +225,10 @@ public class BuildDashboard {
         JPanel myPanelJButtonArray = new JPanel();
         myPanelJButtonArray.setLayout(new GridLayout(SpreadSheetDimensions[0], SpreadSheetDimensions[1], 7, 2));
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (02.03)                      Add Action-Listeners to JButtons                             //
+////////////////////////////////////////////////////////////////////////////////////////////////////
         ii = 0;
         jj = 0;
         kk = 0;
@@ -242,36 +253,17 @@ public class BuildDashboard {
                 }
             }
         }
-        myPanelJButtonArray.setSize(500,500);
 
-//        JTabbedPane tabpane = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
-//        UIManager.put("TabbedPane.contentBorderInsets", new InsetsUIResource(1, 0,0, 0));
-//        SwingUtilities.updateComponentTreeUI(tabpane);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (02.04)                      Define Main Layout for TabPanel                              //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+        myPanelJButtonArray.setSize(500,500);
 
         JPanel myPanelCat = new JPanel();
         myPanelCat.setLayout(new GridBagLayout());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        JLabel iconLabel3 = new JLabel("jjkhlkgljhkfhg jhgk");
-//        JLabel iconLabel3 = new JLabel(label);
-
-//        myPanelNavigation.add(iconLabel3, BorderLayout.CENTER);
-//        myPanelNavigation.add(label, BorderLayout.CENTER);
-
         myPanelNavigation.add(iconLabel, BorderLayout.SOUTH);
-
         GridBagConstraints myGridBag = new GridBagConstraints();
 
         myGridBag.fill = GridBagConstraints.VERTICAL;
@@ -288,7 +280,6 @@ public class BuildDashboard {
         ));
 
         Font myFontTabTitle = new Font(FONTNAME, Font.PLAIN, 22);
-//        tabpane.setFont(myFontTabTitle);
 
         this.myPanelCat = myPanelCat;
 

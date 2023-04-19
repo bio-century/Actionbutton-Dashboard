@@ -1,17 +1,19 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (00)                                 SpreadsheetReadCellData                                  //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Access: Main -> BuildDashboard -> IconEditingImageTransform
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (01)                                      Package Import                                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
 package packageSpreadsheet;
 
 import java.io.*;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-//package com.bethecoder.tutorials.jexcelapi.read;
-
-import java.io.File;
 import java.io.IOException;
-
-//import jxl.Workbook;
-//import jxl.read.biff.BiffException;
 
 // sources:
 // https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
@@ -21,20 +23,18 @@ import java.io.IOException;
 
 public class SpreadsheetReadCellData {
 //    public String ReadSpreadsheet(String SPREADSHEET_NAME, int vRow, int vColumn, int vsheet, int wbook) {
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (02)                     Read-In a Single Cell of a Spreadsheet-Workbook                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
     public String ReadSpreadsheet(String SPREADSHEET_NAME, int vRow, int vColumn, String vsheet) {
         String value = null;
         Workbook wb = null;
         try {
             FileInputStream fis = new FileInputStream(SPREADSHEET_NAME);
             wb = new XSSFWorkbook(fis);
-
-
             //        spreadsheet = workbook.getSheet("sheet1");
-
-
-
-
-
 
 //            wb.getAllNames();//    getSheet(vsheet).exists()
 
@@ -89,10 +89,6 @@ public class SpreadsheetReadCellData {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-
-
-
-
 
         return value;
     }

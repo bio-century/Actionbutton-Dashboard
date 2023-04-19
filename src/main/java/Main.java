@@ -1,3 +1,12 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (00)                                  ACTIONBUTTON-DASHBOARD                                  //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Access: Main
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (01)                                      Package Import                                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
 import com.formdev.flatlaf.FlatDarkLaf;
 import packageBuildDashboard.BuildDashboard;
 import packageIconEditing.IconEditingImageTransform;
@@ -9,12 +18,10 @@ import javax.swing.*;
 import static javax.swing.UIManager.*;
 import java.awt.Color;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-
-// sources:
+// Sources:
 // https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java
 // https://stackoverflow.com/questions/13438871/log4j2-configuring
 // https://mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/
@@ -22,20 +29,38 @@ import javax.swing.JTabbedPane;
 // https://www.javatpoint.com/how-to-read-excel-file-in-java
 // https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
 // https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum--
+
 public class Main {
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (02)                                       Define Paths                                       //
+////////////////////////////////////////////////////////////////////////////////////////////////////
     static String USER_DIR = System.getProperty("user.dir");
     public static String USER_DIR_SPREADSHEETS = USER_DIR + "\\src\\main\\resources\\spreadsheetFiles";
     public static String SPREADSHEET_NAME = "\\BUTTON_AUTOSTART.xlsx";
 
     public static void main(String[] args) throws IOException {
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (03)                                        Set Style                                         //
+////////////////////////////////////////////////////////////////////////////////////////////////////
         try {
             setLookAndFeel(new FlatDarkLaf());
         } catch (UnsupportedLookAndFeelException e) {
             throw new RuntimeException(e);
         }
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (04)                                Set Configuration by User                                 //
+////////////////////////////////////////////////////////////////////////////////////////////////////
         try {
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (04.01)                     Load User Configuration Parameters                            //
+////////////////////////////////////////////////////////////////////////////////////////////////////
             String MOUSEOVER_TEXT = "yes";
 //            String MOUSEOVER_TEXT = "no";
 
@@ -100,7 +125,6 @@ public class Main {
             String[] MY_FRAME_BACKGROUND_ALL = MY_FRAME_BACKGROUND_TRIMMED.split(",");
 
 
-
             // Tab Icons
             String TAB_ICON_NAME = prop.getProperty("TAB_ICON_NAME");
             String TAB_ICON_NAME_TRIMMED = TAB_ICON_NAME.replaceAll(" ","");
@@ -112,6 +136,9 @@ public class Main {
             int IMAGE_LOGO_WIDTH = Integer.parseInt(prop.getProperty("IMAGE_LOGO_WIDTH"));
             int IMAGE_LOGO_HEIGHT = Integer.parseInt(prop.getProperty("IMAGE_LOGO_HEIGHT"));
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (04.02)                         Print Settings in Console                                 //
+////////////////////////////////////////////////////////////////////////////////////////////////////
             System.out.println("\n");
             System.out.println("/////////////////////////////////////////////////////\n" +
                     "// CONFIG FILE DEFINING THE ACTIONBUTTON-DASHBOARD //\n" +
@@ -159,7 +186,9 @@ public class Main {
             System.out.println("\n");
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (05)                                   Load Category Names                                    //
+////////////////////////////////////////////////////////////////////////////////////////////////////
             final int FILE_NUMBER = new File(USER_DIR_SPREADSHEETS).listFiles().length;
             String datastring[] = new String[FILE_NUMBER];
 
@@ -179,9 +208,12 @@ public class Main {
                 System.out.println(SPREADSHEET_ALL[aa]);
                 aa++;
             }
-
 //            myTabbedPane.setBackground(new Color(100, 10, 52));
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//  (06)                              Create Actionbutton-Dashboard                               //
+////////////////////////////////////////////////////////////////////////////////////////////////////
             BuildDashboard[] BD = new BuildDashboard[aa];
             JPanel[] JPanel = new JPanel[aa];
 
@@ -194,6 +226,9 @@ public class Main {
 
             for (int i = 0; i < aa; i++) {
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (06.01)                      Build Objects on JButton-Arrays                              //
+////////////////////////////////////////////////////////////////////////////////////////////////////
                 BD[i] = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
                         NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
                         USER_DIR_SPREADSHEETS,
@@ -222,10 +257,11 @@ public class Main {
                 JPanel[i].setSize(300,300);
                 TAB_ICON[i] = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + TAB_ICON_NAME_ALL[i]);
                 UIManager.put("TabbedPane.selected", new Color(176,135,200));
-
                 System.out.println(String.valueOf(i));
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (06.02)                              Set Up TabPanel                                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
                 myTabbedPane.addTab(" " + CATEGORY_NAMES[i] + " ", TAB_ICON[i], JPanel[i]);
                 myTabbedPane.setBackground(new Color(
                         Integer.parseInt(MY_COLOR_JTAB_BACKGROUND_ALL[0]),
@@ -235,23 +271,25 @@ public class Main {
 
             }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (06.03)                             Create Main-Frame                                     //
+////////////////////////////////////////////////////////////////////////////////////////////////////
             JFrame myFrame;
-
-            int WIDTH = NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400;
-            int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50;
-
             myFrame = new JFrame();
-
-            myFrame.setSize(WIDTH, HEIGHT);
-            myFrame.setTitle(FRAME_TITLE);
-            myFrame.setResizable(false);
-
-
             myFrame.add(myTabbedPane, BorderLayout.CENTER);
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////  (06.04)                            Set Main-Frame Style                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+            int WIDTH = NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400;
+            int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50;
+            myFrame.setSize(WIDTH, HEIGHT);
+            myFrame.setTitle(FRAME_TITLE);
+            myFrame.setResizable(false);
             myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             myFrame.setVisible(true);
+
 
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: FileNotFoundException");
