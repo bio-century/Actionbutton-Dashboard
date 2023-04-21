@@ -9,6 +9,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 package packageBuildDashboard;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import packageIconEditing.IconEditingImageTransform;
 import packageJButtons.JButtonsSetUpActionListener;
 import packageSpreadsheet.SpreadsheetReadCellData;
@@ -17,6 +21,7 @@ import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.*;
+import java.io.IOException;
 
 import javax.swing.border.*;
 import javax.swing.JLabel;
@@ -53,7 +58,10 @@ public class BuildDashboard {
                           String[] MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL,
                           String[] MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL,
                           String[] MY_COLOR_JTAB_BACKGROUND_ALL,
-                          String MOUSEOVER_TEXT
+                          String MOUSEOVER_TEXT,
+                          int NUMBER_OF_ROWS_MAX,
+                          int NUMBER_OF_COLUMNS_MAX
+
     ) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -102,6 +110,20 @@ public class BuildDashboard {
 //        JLabel label = new JLabel("Move the mouse moves over this JLabel");
 //        JLabel label23 = new JLabel("Move JLabel");
 
+        try {
+            Workbook workbook = new XSSFWorkbook(SPREADSHEET_ALL);
+            Sheet sheet = workbook.getSheet("fieldnames");
+            int rowCount = 0;
+
+            rowCount = sheet.getLastRowNum();
+            if (rowCount == 0) {
+                rowCount = sheet.getPhysicalNumberOfRows();
+            }
+            System.out.println("physicalRows: " + rowCount);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         for (int i = 0; i < NUMBER_OF_ROWS; i++) {
             for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
@@ -130,9 +152,9 @@ public class BuildDashboard {
                     int mySpreadSheetColorR;
                     int mySpreadSheetColorG;
                     int mySpreadSheetColorB;
-                    System.out.println(mySpreadSheetColorRGB[0]);
-                    System.out.println(mySpreadSheetColorRGB[1]);
-                    System.out.println(mySpreadSheetColorRGB[2]);
+//                    System.out.println(mySpreadSheetColorRGB[0]);
+//                    System.out.println(mySpreadSheetColorRGB[1]);
+//                    System.out.println(mySpreadSheetColorRGB[2]);
                     mySpreadSheetColorR = Integer.parseInt(mySpreadSheetColorRGB[0]);
                     mySpreadSheetColorG = Integer.parseInt(mySpreadSheetColorRGB[1]);
                     mySpreadSheetColorB = Integer.parseInt(mySpreadSheetColorRGB[2]);
@@ -234,8 +256,10 @@ public class BuildDashboard {
         mainPanel.setLayout(new GridBagLayout());
 
         JPanel myPanelJButtonArray = new JPanel();
-        myPanelJButtonArray.setLayout(new GridLayout(SpreadSheetDimensions[0], SpreadSheetDimensions[1], 7, 2));
-
+//        myPanelJButtonArray.setLayout(new GridLayout(SpreadSheetDimensions[0], SpreadSheetDimensions[1], 7, 2));
+        myPanelJButtonArray.setLayout(new GridLayout(NUMBER_OF_ROWS_MAX, SpreadSheetDimensions[1], 7, 2));
+//        SpreadSheetDimensions[0] //Rows
+//        SpreadSheetDimensions[1] //Columns
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (02.03)                      Add Action-Listeners to JButtons                             //
@@ -264,6 +288,14 @@ public class BuildDashboard {
                 }
             }
         }
+
+        if (NUMBER_OF_ROWS < NUMBER_OF_ROWS_MAX) {
+            for (int rr = NUMBER_OF_ROWS; rr < (NUMBER_OF_ROWS_MAX-NUMBER_OF_ROWS)*NUMBER_OF_COLUMNS; rr++) {
+                System.out.println("rr: "+rr);
+                    myPanelJButtonArray.add(new JLabel(""));
+            }
+        }
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

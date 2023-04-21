@@ -15,6 +15,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.IOException;
 
+import static org.apache.poi.xslf.usermodel.XSLFTableStyle.TablePartStyle.lastRow;
+
 // sources:
 // https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
 // https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum--
@@ -71,24 +73,33 @@ public class SpreadsheetReadCellData {
                 wb.write(fileOut);
             }
 
-
-            Row row = sheet.getRow(vRow);
-            if (row != null) {
-                Cell cell = row.getCell(vColumn);
-                if (cell == null) {
-                    value = "";
+//            try {
+                Row row = sheet.getRow(vRow);
+                if (row != null) {
+                    Cell cell = row.getCell(vColumn);
+                    if (cell == null) {
+                        value = "";
+                    } else {
+                        value = cell.getStringCellValue();
+                    }
                 } else {
-                    value = cell.getStringCellValue();
+                    value = "";
                 }
-            } else {
-                value = "";
-            }
+
+
+//            } finally {
+//                value = "END OF COLUMN";
+//
+//            }
 //
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+
+
+
 
         return value;
     }

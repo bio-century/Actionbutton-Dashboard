@@ -10,16 +10,37 @@
 import com.formdev.flatlaf.FlatDarkLaf;
 import packageBuildDashboard.BuildDashboard;
 import packageIconEditing.IconEditingImageTransform;
+import packageSpreadsheet.ReadingXlsxFilesInJava;
 
 import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Properties;
 import javax.swing.*;
+
+import static java.lang.Math.max;
 import static javax.swing.UIManager.*;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Cell;
+
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import static java.lang.Math.*;
 
 // Sources:
 // https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java
@@ -83,8 +104,8 @@ public class Main {
 
 
             // Spreadsheet specifications
-            final int NUMBER_OF_ROWS = Integer.parseInt(prop.getProperty("NUMBER_OF_ROWS"));
-            final int NUMBER_OF_COLUMNS = Integer.parseInt(prop.getProperty("NUMBER_OF_COLUMNS"));
+            int NUMBER_OF_ROWS = 0;//Integer.parseInt(prop.getProperty("NUMBER_OF_ROWS"));
+            int NUMBER_OF_COLUMNS = 0;//Integer.parseInt(prop.getProperty("NUMBER_OF_COLUMNS"));
 
 
             // Layout Specifigations
@@ -205,10 +226,13 @@ public class Main {
 //                System.out.println(datastring[aa].substring(0, FILE_NAME_LENGTH-0));
                 CATEGORY_NAMES[aa] = datastring[aa].substring(0, FILE_NAME_LENGTH - 5);
                 SPREADSHEET_ALL[aa] = USER_DIR_SPREADSHEETS + "\\" + datastring[aa].substring(0, FILE_NAME_LENGTH-0);
-                System.out.println(SPREADSHEET_ALL[aa]);
+//                System.out.println(SPREADSHEET_ALL[aa]);
                 aa++;
             }
 //            myTabbedPane.setBackground(new Color(100, 10, 52));
+
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -220,11 +244,39 @@ public class Main {
             JTabbedPane myTabbedPane = new JTabbedPane();
 //            JTabbedPane[] myTabbedPane = new JTabbedPane[aa];
 
-            System.out.println("aa is currently: " + String.valueOf(aa));
+//            System.out.println("aa is currently: " + String.valueOf(aa));
 
             ImageIcon[] TAB_ICON = new ImageIcon[aa];
 
+
+            List<Integer> NUMBER_OF_ROWS_TMP = new ArrayList<Integer>();
+            List<Integer> NUMBER_OF_COLUMNS_TMP = new ArrayList<Integer>();
+
             for (int i = 0; i < aa; i++) {
+                int[] Columnscount = new ReadingXlsxFilesInJava().ReadingXlsxFilesInJava(SPREADSHEET_ALL[i]);
+                System.out.println("FINALii: " + Columnscount[0] + ", FINALjj: " + Columnscount[1]);
+                NUMBER_OF_ROWS_TMP.add(Columnscount[1]); // rows
+                NUMBER_OF_COLUMNS_TMP.add(Columnscount[0]); // columns!!!
+            }
+
+            int NUMBER_OF_ROWS_MAX = 0;
+            int NUMBER_OF_COLUMNS_MAX = 0;
+
+            for (int i = 0; i < aa-1; i++) {
+                NUMBER_OF_ROWS_MAX = max(NUMBER_OF_ROWS_MAX, NUMBER_OF_ROWS_TMP.get(i+1));
+                NUMBER_OF_COLUMNS_MAX = max(NUMBER_OF_COLUMNS_MAX, NUMBER_OF_COLUMNS_TMP.get(i+1));
+            }
+
+            System.out.println("columnsFinal: " + NUMBER_OF_ROWS_MAX);
+            System.out.println("rowsFinal: " + NUMBER_OF_COLUMNS_MAX);
+
+
+
+            for (int i = 0; i < aa; i++) {
+                int[] Columnscount = new ReadingXlsxFilesInJava().ReadingXlsxFilesInJava(SPREADSHEET_ALL[i]);
+                System.out.println("FINALii: "+Columnscount[0]+", FINALjj: "+Columnscount[1]);
+                NUMBER_OF_ROWS=Columnscount[1];
+                NUMBER_OF_COLUMNS=Columnscount[0];
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (06.01)                      Build Objects on JButton-Arrays                              //
@@ -249,7 +301,9 @@ public class Main {
                         MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL,
                         MY_COLOR_JBUTTON_ARRAY_BACKGROUND_ALL,
                         MY_COLOR_JTAB_BACKGROUND_ALL,
-                        MOUSEOVER_TEXT
+                        MOUSEOVER_TEXT,
+                        NUMBER_OF_ROWS_MAX,
+                        NUMBER_OF_COLUMNS_MAX
                         );
 
                 UIManager.put("SplitPane.border", Color.blue);
@@ -257,7 +311,7 @@ public class Main {
                 JPanel[i].setSize(300,300);
                 TAB_ICON[i] = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + TAB_ICON_NAME_ALL[i]);
                 UIManager.put("TabbedPane.selected", new Color(176,135,200));
-                System.out.println(String.valueOf(i));
+//                System.out.println(String.valueOf(i));
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (06.02)                              Set Up TabPanel                                      //
@@ -282,11 +336,13 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (06.04)                            Set Main-Frame Style                                   //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-            int WIDTH = NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400;
-            int HEIGHT = NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 50;
+            System.out.println("NUMBER_OF_COLUMNS: "+NUMBER_OF_COLUMNS+", NUMBER_OF_ROWS: "+NUMBER_OF_ROWS);
+            int WIDTH = NUMBER_OF_COLUMNS_MAX * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR;// + 400;
+            int HEIGHT = NUMBER_OF_ROWS_MAX * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 100;
             myFrame.setSize(WIDTH, HEIGHT);
             myFrame.setTitle(FRAME_TITLE);
-            myFrame.setResizable(false);
+//            myFrame.setResizable(false);
+            myFrame.setResizable(true);
             myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             myFrame.setVisible(true);
 
