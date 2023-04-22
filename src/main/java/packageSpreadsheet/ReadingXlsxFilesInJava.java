@@ -51,7 +51,7 @@ public class ReadingXlsxFilesInJava {
                     case STRING:
 //                        System.out.println(cell.getStringCellValue() + "\t\t");
                         ii = ii + 1;
-                        kk=kk+1;
+                        kk = kk + 1;
                         iiFinal.add(ii); // columns!!!
                         jjFinal.add(jj); // rows
 

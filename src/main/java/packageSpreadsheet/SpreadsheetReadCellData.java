@@ -57,7 +57,7 @@ public class SpreadsheetReadCellData {
             for (int i = 0 ; i < numberOfSheets; i ++ ) {
                 sheetNames = wb.getSheetName(i);
 
-                if (sheetNames.indexOf("test") ==0) {
+                if (sheetNames.indexOf("comments") ==0) {
                     testavailable = 1;
                 }
 //                System.out.println("tA " + sheetNames);
@@ -69,7 +69,7 @@ public class SpreadsheetReadCellData {
             if (testavailable == 0) {
                 OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
 
-                Sheet sheet2 = wb.createSheet("test");
+                Sheet sheet2 = wb.createSheet("comments");
                 wb.write(fileOut);
             }
 

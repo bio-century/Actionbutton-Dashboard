@@ -77,7 +77,7 @@ public class BuildDashboard {
 
 
 
-        String[][] myCategoriesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+//        String[][] myCategoriesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myUrlAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myColorAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myMouserOverText = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
@@ -129,11 +129,11 @@ public class BuildDashboard {
             for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
                 ColRowCounts[j] = 0;
                 myFieldnamesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "fieldnames");
-                myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "category");
+//                myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "category");
                 myUrlAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "URL");
                 myColorAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "color");
 
-                myTestAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "test");
+                myTestAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "comments");
 
                 if (MOUSEOVER_TEXT == "no") {
                     myMouserOverText[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "mouseover text");
@@ -146,7 +146,7 @@ public class BuildDashboard {
 
                 if (j < NUMBER_OF_COLUMNS && i == 0) {
                     String colorallfg;
-                    colorallfg = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, 1, j, "color");
+                    colorallfg = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, 0, j, "color");
                     String[] mySpreadSheetColorRGB = colorallfg.split(",");
 //                    String[] mySpreadSheetColorRGB = myColorAll[i][j].split(",");
                     int mySpreadSheetColorR;
@@ -181,6 +181,7 @@ public class BuildDashboard {
                     int values_int1;
                     int values_int2;
                     int values_int3;
+
                     values_int1 = Integer.parseInt(values[0]);
                     values_int2 = Integer.parseInt(values[1]);
                     values_int3 = Integer.parseInt(values[2]);
@@ -291,7 +292,7 @@ public class BuildDashboard {
 
         if (NUMBER_OF_ROWS < NUMBER_OF_ROWS_MAX) {
             for (int rr = NUMBER_OF_ROWS; rr < (NUMBER_OF_ROWS_MAX-NUMBER_OF_ROWS)*NUMBER_OF_COLUMNS; rr++) {
-                System.out.println("rr: "+rr);
+//                System.out.println("rr: "+rr);
                     myPanelJButtonArray.add(new JLabel(""));
             }
         }

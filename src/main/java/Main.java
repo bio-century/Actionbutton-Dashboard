@@ -107,6 +107,13 @@ public class Main {
             int NUMBER_OF_ROWS = 0;//Integer.parseInt(prop.getProperty("NUMBER_OF_ROWS"));
             int NUMBER_OF_COLUMNS = 0;//Integer.parseInt(prop.getProperty("NUMBER_OF_COLUMNS"));
 
+            String CATEGORY_TITLES_TMP = prop.getProperty("CATEGORY_TITLES");
+            String[] CATEGORY_TITLES_ALL = CATEGORY_TITLES_TMP.split(", ");
+
+            String SPREADSHEET_NAMES_TMP = prop.getProperty("SPREADSHEET_NAMES");
+            String[] SPREADSHEET_NAMES_ALL = SPREADSHEET_NAMES_TMP.split(", ");
+
+
 
             // Layout Specifigations
             String FONTNAME = prop.getProperty("FONTNAME");
@@ -181,6 +188,7 @@ public class Main {
             // Spreadsheet Specifications
             System.out.println("Spreadsheet Specifications:");
             System.out.println("SPREADSHEET_NAME: " + SPREADSHEET_NAME);
+            System.out.println("SPREADSHEET_NAMES_ALL: " + SPREADSHEET_NAMES_ALL);
 
 
             // Layout Specifications
@@ -221,11 +229,13 @@ public class Main {
 
             int aa = 0;
             for (File file : folder.listFiles()) {
-                datastring[aa] = file.getName();
-                int FILE_NAME_LENGTH = datastring[aa].length();
+//                datastring[aa] = file.getName();
+                int FILE_NAME_LENGTH = SPREADSHEET_NAMES_ALL[aa].length();
+                datastring[aa] = SPREADSHEET_NAMES_ALL[aa].substring(0, FILE_NAME_LENGTH);
+
 //                System.out.println(datastring[aa].substring(0, FILE_NAME_LENGTH-0));
-                CATEGORY_NAMES[aa] = datastring[aa].substring(0, FILE_NAME_LENGTH - 5);
-                SPREADSHEET_ALL[aa] = USER_DIR_SPREADSHEETS + "\\" + datastring[aa].substring(0, FILE_NAME_LENGTH-0);
+                CATEGORY_NAMES[aa] = CATEGORY_TITLES_ALL[aa];
+                SPREADSHEET_ALL[aa] = USER_DIR_SPREADSHEETS + "\\" + datastring[aa] +".xlsx";
 //                System.out.println(SPREADSHEET_ALL[aa]);
                 aa++;
             }
@@ -254,7 +264,7 @@ public class Main {
 
             for (int i = 0; i < aa; i++) {
                 int[] Columnscount = new ReadingXlsxFilesInJava().ReadingXlsxFilesInJava(SPREADSHEET_ALL[i]);
-                System.out.println("FINALii: " + Columnscount[0] + ", FINALjj: " + Columnscount[1]);
+//                System.out.println("FINALii: " + Columnscount[0] + ", FINALjj: " + Columnscount[1]);
                 NUMBER_OF_ROWS_TMP.add(Columnscount[1]); // rows
                 NUMBER_OF_COLUMNS_TMP.add(Columnscount[0]); // columns!!!
             }
@@ -274,7 +284,7 @@ public class Main {
 
             for (int i = 0; i < aa; i++) {
                 int[] Columnscount = new ReadingXlsxFilesInJava().ReadingXlsxFilesInJava(SPREADSHEET_ALL[i]);
-                System.out.println("FINALii: "+Columnscount[0]+", FINALjj: "+Columnscount[1]);
+//                System.out.println("FINALii: "+Columnscount[0]+", FINALjj: "+Columnscount[1]);
                 NUMBER_OF_ROWS=Columnscount[1];
                 NUMBER_OF_COLUMNS=Columnscount[0];
 
@@ -284,7 +294,7 @@ public class Main {
                 BD[i] = new BuildDashboard(NUMBER_OF_COLUMNS * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR,
                         NUMBER_OF_ROWS * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR,
                         USER_DIR_SPREADSHEETS,
-                        SPREADSHEET_NAME,
+                        SPREADSHEET_NAMES_ALL[i],
                         FONTNAME,
                         NUMBER_OF_ROWS,
                         NUMBER_OF_COLUMNS,
@@ -337,8 +347,8 @@ public class Main {
 //////  (06.04)                            Set Main-Frame Style                                   //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
             System.out.println("NUMBER_OF_COLUMNS: "+NUMBER_OF_COLUMNS+", NUMBER_OF_ROWS: "+NUMBER_OF_ROWS);
-            int WIDTH = NUMBER_OF_COLUMNS_MAX * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR;// + 400;
-            int HEIGHT = NUMBER_OF_ROWS_MAX * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 100;
+            int WIDTH = NUMBER_OF_COLUMNS_MAX * NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR + 400;
+            int HEIGHT = NUMBER_OF_ROWS_MAX * NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR + 150;
             myFrame.setSize(WIDTH, HEIGHT);
             myFrame.setTitle(FRAME_TITLE);
 //            myFrame.setResizable(false);
