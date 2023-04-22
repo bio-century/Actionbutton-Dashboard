@@ -47,13 +47,10 @@ public class SpreadsheetReadCellData {
             // Create new sheet to the workbook if empty
 //            sheet2 = wb.createSheet("test");
 //        }
-
-
             int numberOfSheets = wb.getNumberOfSheets();
 //            System.out.println("Total Number of Sheets: " + numberOfSheets);
             String sheetNames;//    getSheetNames();
             int testavailable = 0;
-
             for (int i = 0 ; i < numberOfSheets; i ++ ) {
                 sheetNames = wb.getSheetName(i);
 
@@ -64,7 +61,6 @@ public class SpreadsheetReadCellData {
 //                System.out.println("tA " + testavailable);
             }
             Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
-
 //            System.out.println("tA " + testavailable);
             if (testavailable == 0) {
                 OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
@@ -72,6 +68,30 @@ public class SpreadsheetReadCellData {
                 Sheet sheet2 = wb.createSheet("comments");
                 wb.write(fileOut);
             }
+
+
+            int testavailable2 = 0;
+            for (int i = 0 ; i < numberOfSheets; i ++ ) {
+                sheetNames = wb.getSheetName(i);
+
+                if (sheetNames.indexOf("icons") ==0) {
+                    testavailable2 = 1;
+                }
+//                System.out.println("tA " + sheetNames);
+//                System.out.println("tA " + testavailable);
+            }
+//            System.out.println("tA " + testavailable);
+            if (testavailable2 == 0) {
+                OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
+
+                Sheet sheet2 = wb.createSheet("icons");
+                wb.write(fileOut);
+            }
+
+
+
+
+
 
 //            try {
                 Row row = sheet.getRow(vRow);

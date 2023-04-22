@@ -9,11 +9,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 package packageBuildDashboard;
 
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import packageIconEditing.IconEditingImageTransform;
+//import packageIconEditing.IconEditingImageTransformJButton;
 import packageJButtons.JButtonsSetUpActionListener;
 import packageSpreadsheet.SpreadsheetReadCellData;
 
@@ -22,11 +22,15 @@ import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.border.*;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import static packageIconEditing.IconEditingImageTransformJButton.merge;
 
 // Sources:
 // https://www.youtube.com/watch?v=816wduoH9eY
@@ -86,8 +90,9 @@ public class BuildDashboard {
         String[][] myMouserOverText = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
         String[][] myTestAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+        String[][] myIconJButton = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
-        ImageIcon[][] TAB_ICON = new ImageIcon[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
+//        ImageIcon TAB_ICON = new ImageIcon[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
         ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
 
@@ -174,8 +179,35 @@ public class BuildDashboard {
                     myLabelsBlanks[jj].setVerticalAlignment(JLabel.CENTER);
                     jj++;
                 } else {
-                    TAB_ICON[i][j] = IconEditingImageTransform.ImageTransform(25, 25, USER_DIR_ICONS + "gear.png");
-                    myButtons[kk] = new JButton(TAB_ICON[i][j]);
+
+//                    BufferedImage bi = ImageIO.read(new File("./hdd.png"));
+//                    BufferedImage bi2 = ImageIO.read(new File("./hdd.png"));
+//        Image left = createImage(size, Color.YELLOW);
+
+//                    Image merged = merge(bi2, bi);
+                    myIconJButton[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "icons");
+
+                    if (myIconJButton[i][j]=="") {
+                        myButtons[kk] = new JButton();
+                    } else if (myIconJButton[i][j]=="BCN_Logo2.png") {
+                        ImageIcon MyImageToBeTransformed2 = IconEditingImageTransform.ImageTransform(150, 25, USER_DIR_ICONS + myIconJButton[i][j]);
+                        Image myImage = MyImageToBeTransformed2.getImage();
+                        ImageIcon TAB_ICON = IconEditingImageTransform.ImageTransform(3, 25, USER_DIR_ICONS + "blank.png");
+                        Image merged = merge(TAB_ICON.getImage(), myImage);
+                        //                    myImageLogo
+                        ImageIcon MyImageToBeTransformed = new ImageIcon(merged);
+                        myButtons[kk] = new JButton(MyImageToBeTransformed);
+                    } else{
+                        ImageIcon MyImageToBeTransformed2 = IconEditingImageTransform.ImageTransform(25, 25, USER_DIR_ICONS + myIconJButton[i][j]);
+                        Image myImage = MyImageToBeTransformed2.getImage();
+                        ImageIcon TAB_ICON = IconEditingImageTransform.ImageTransform(3, 25, USER_DIR_ICONS + "blank.png");
+                        Image merged = merge(TAB_ICON.getImage(), myImage);
+                        //                    myImageLogo
+                        ImageIcon MyImageToBeTransformed = new ImageIcon(merged);
+                        myButtons[kk] = new JButton(MyImageToBeTransformed);
+                    }
+
+//                    myButtons[kk] = new JButton(TAB_ICON[i][j]);
                     myButtons[kk].setBackground(new Color(
                             Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[0]),
                             Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[1]),
