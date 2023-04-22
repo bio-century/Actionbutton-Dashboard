@@ -313,7 +313,9 @@ public class Main {
                         MY_COLOR_JTAB_BACKGROUND_ALL,
                         MOUSEOVER_TEXT,
                         NUMBER_OF_ROWS_MAX,
-                        NUMBER_OF_COLUMNS_MAX
+                        NUMBER_OF_COLUMNS_MAX,
+                        USER_DIR_ICONS,
+                        TAB_ICON_NAME_ALL
                         );
 
                 UIManager.put("SplitPane.border", Color.blue);

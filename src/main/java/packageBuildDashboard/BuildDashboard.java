@@ -17,6 +17,7 @@ import packageIconEditing.IconEditingImageTransform;
 import packageJButtons.JButtonsSetUpActionListener;
 import packageSpreadsheet.SpreadsheetReadCellData;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Color;
@@ -60,9 +61,11 @@ public class BuildDashboard {
                           String[] MY_COLOR_JTAB_BACKGROUND_ALL,
                           String MOUSEOVER_TEXT,
                           int NUMBER_OF_ROWS_MAX,
-                          int NUMBER_OF_COLUMNS_MAX
+                          int NUMBER_OF_COLUMNS_MAX,
+                          String USER_DIR_ICONS,
+                          String[] TAB_ICON_NAME_ALL
 
-    ) {
+    ) throws IOException {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (02.01)                       Read-In all Spreadsheet Cells                               //
@@ -84,6 +87,7 @@ public class BuildDashboard {
 
         String[][] myTestAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
+        ImageIcon[][] TAB_ICON = new ImageIcon[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
         ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
 
@@ -170,7 +174,8 @@ public class BuildDashboard {
                     myLabelsBlanks[jj].setVerticalAlignment(JLabel.CENTER);
                     jj++;
                 } else {
-                    myButtons[kk] = new JButton();
+                    TAB_ICON[i][j] = IconEditingImageTransform.ImageTransform(25, 25, USER_DIR_ICONS + "gear.png");
+                    myButtons[kk] = new JButton(TAB_ICON[i][j]);
                     myButtons[kk].setBackground(new Color(
                             Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[0]),
                             Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[1]),
@@ -193,6 +198,10 @@ public class BuildDashboard {
 
                     Border border = new LineBorder(new Color(values_int1, values_int2, values_int3), 1);
                     myButtons[kk].setBorder(border);
+
+
+//                    Image img = ImageIO.read(getClass().getResource(USER_DIR_IMAGES + IMAGE_LOGO));
+//                    myButtons[kk].setIcon(new ImageIcon(img));
 
                     if (String.valueOf(myTestAll[i][j]) != "") {
                         myButtons[kk].setToolTipText(String.valueOf(myTestAll[i][j]));
