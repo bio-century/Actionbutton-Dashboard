@@ -5,114 +5,150 @@ Sick and tired of endlessly navigating through directories and bookmark inventor
 Actionbutton-Dashboard-project enables you to set up a easy-to-configure array of JButtons which can open local apps, folders, network drives 
 as well as intranet and internet websites. The array is then depicted in a graphical interface:
 <br>
-![Screenshot_Actionbutton-Dashboard](./README_Images/Screenshot_Actionbutton-Dashboard_slim.png) <br>
+<img src="./README_Images/Screenshot_Actionbutton-Dashboard_slim.png" width="50%"><br><br>
 All buttons can be defined individually according to your needs by using simple spreadsheet configuration tables. 
 After you are done with defining button names, paths and colors, just double-click on the jar file (fatjar) and the JButton-window will open. <br>
-![Screenshot_Actionbutton-Dashboard](./README_Images/Screenshot_Spreadsheet.png) <br>
-An optional field for logos will give companies the opportunity to introduce their corporate identity design.
+<img src="./README_Images/Screenshot_Spreadsheet.png" width="40%"><br>
+An optional field for logos will give companies the opportunity to introduce their corporate identity design.<br><br>
+PLEASE NOTE: Everything can be setup quite easily, you don't need to have programming experience at all to get some beautiful results. Just check 
+out the step-by-step manual in the [Getting Started](#gettingstarted) section
 
 # Table of Content
-- [Import](#import)
 - [Getting Started](#gettingstarted)
 - [Folder structure](#folderstructure)
-- [Example](#example)
-- [Planned Updates](#PlannedUpdates)
-- [Contributors & Credits](#Contributors&Credits)
 - [License](#license)
 - [Contributors & Acknowledgments](#Contributors&Acknowledgments)
 - [Sources](#Sources)
 - [Contact](#contact)
 
 
-## <a id='import'></a> Import
-
 ## <a id='gettingstarted'></a> Getting Started
-For those of you who just want to use the dashboard after some minor adjustments please draw your attention to (1) 
-the BUTTON_AUTOSTART.xlsx-spreadsheet file () and (2) the Actionbutton-Dashboard-jar-with-dependencies.jar. First, 
-please open and modify the spreadsheet as follows:
+This section is subdivided into a [Manual For USERS](#ManualForUSERS) and a [Manual For Programmers](#ManualForProgrammers) (i.e. experts).
 
-| tab          | explanation                                                                        |
-|--------------|------------------------------------------------------------------------------------|
-| fieldnames   | words that are imprinted onto the button                                           |
-| category     |                                                                                    |
-| URL          | link, that the button is going to open. It can be a file path, a file or a website |
-| color        | color in RGB-code that defines the color of the button (text and button frame)     |
+### <a id='ManualForUSERS'></a> Manual For USERS
+This is a step-by-step manual for users. Everything you need to set up your Actionbutton-Dashboard can be found in the target 
+folder. Please check out section [Folder structure](#folderstructure) as reference for the following instructions:
+- Copy the target folder ([Folder structure](#folderstructure): 1) into a local destination folder of your choice.
+- Run the jar file named ```Actionbutton-Dashboard-jar-with-dependencies.jar``` ([Folder structure](#folderstructure): 2) as a first test. If this 
+  doesn't work, check out if a Java Software Development Kit (SDK) is installed on your computer. Manuals can be found everywhere, e.g. on         
+  <a href="https://www.geeksforgeeks.org/download-and-install-java-development-kit-jdk-on-windows-mac-and-linux/">www.geeksforgeeks.org</a>.
+- Set up the configuration file ```config.properties``` ([Folder structure](#folderstructure): 3) to define titles, colors, icons and logos.
+- Complement ```icons-``` and the ```images-```folder ([Folder structure](#folderstructure): 4 & 5) with your individual layout figures used for 
+  the tabs (-> see ```config.properties```) and the JButtons (-> see [Folder structure](#folderstructure): 6, spreadsheet files, tab "icons").
+- Configure the spreadsheet files used for your dashboard ([Folder structure](#folderstructure): 6). There are 5 sheets available in each workbook.
 
-Note: The buttons have to be defined from top to bottom. Blank calls will cause, that everything below will be ignored 
+| tab        | explanation                                                                        |
+|------------|------------------------------------------------------------------------------------|
+| fieldnames | words that are imprinted onto the button                                           |
+| URL        | link, that the button is going to open. It can be a file path, a file or a website |
+| color      | RGB-code that defines the color of the button (text and button frame)              |
+| comments   | text that shows up on mouse-over the JButton. If empty, the field will be ignored  |
+| icons      | filename of icon-image for each JButton. If empty, the field will be ignored       |
 
-When you are done, please save the spreadsheet and double-click on the jar
+NOTE: If errors occure leading to the jar-file not being executed, review the template delivered by downloading the repo, which also serves as an 
+example right away. Please pay attention to the proper setting of spaces in the config-file. Moreover, the following procedure might give you 
+extra hints:
+- Open a shell in the jar-file directory (e.g. for Windows: cmd).
+- Type ```java -jar Actionbutton-Dashboard-jar-with-dependencies.jar```.
 
-```java -jar my-project-name-jar-with-dependencies.jar```
+### <a id='ManualForProgrammers'></a> Manual For Programmers
+First of all: Your contributions, ideas and feedback is very welcome. Also please be patient if merge requests are pending due to a limited 
+amount of time. This work is structured due to my knowledge of Java practises:
+- (i)   : The pom.xml file generated with the help of Maven defining dependencies, importing packages and copy the resources into the target folder.
+- (ii)  : The Main.java where the ```config.properties```-parameters are imported and the dashboard is built.
+- (iii) : Class used in main to build the dashboard for each tab.
+- (iv)  : Classes used for scaling and converting icons and logos for the panel and the JButtons.
+- (v)   : Class to set up the action events (listener) for each JButton.
+- (vi)  : Classes reads in spreadsheet data and determines column and row numbers.
+- (vii) : Plain-text file to configuration titles, colors, icons and logos.
+- (viii): Place to put all icon-files (e.g. as .png) used for the individual JButtons. Don't forget to reference them in the ```config.
+  properties-``` or the icon-tab of the corresponding spreadsheet-workbook accordingly.
+- (ix)  : Place to put your identity or company logo. Don't forget to reference them in the ```config.properties-```file
+- (x)   : Spreadsheet files used to define JButton names, paths, colors, icons and positions within the array. Please use the given template for 
+  formatting support.
 
+### <a id='InspirationsandToDos'></a> Inspirations & ToDo's
+To all you software developer out there, this is a section where ideas can be collected^^. Please take into account, that the general focus of this 
+project is to have an Actionbutton-Dashboard with a target folder outcome, that can be configured by anyone in an easy-to-comprehend manner! 
+Thanks for your inspirations!
+- [ ] Wrap config-file parameter into structures
+- [ ] Eliminating ```Cleaning up unclosed ZipFile for archive```-warning
+- [ ] Idea 2
+- [ ] Idea 3
 
 ## <a id='folderstructure'></a> Folder structure
 ```
 |   LICENSE
-|   pom.xml
+|   pom.xml                                                     <--- (i)                : Maven-based pom.xml-file to define dependencies and copy 
+|                                                                                         the resources into the target folder
 |   README.md
 |
-+---.idea +++                                                    (COLLAPSED)
-+---META-INF +++                                                 (COLLAPSED)
-+---README_Images +++                                            (COLLAPSED)
++---.idea +++                                                   (COLLAPSED)
++---META-INF +++                                                (COLLAPSED)
++---README_Images +++                                           (COLLAPSED)
 |
 +---src
 |   |
 |   \---main
 |       +---java
-|       |   |   packageBuildDashboard.BuildDashboard.java
-|       |   |   Main.java                                        <--- (4) Main 
+|       |   |   Main.java                                       <--- (ii) Main 
 |       |   |
-|       |   +---packageIconEditing +++                           (COLLAPSED)
-|       |   +---packageJButtons +++                              (COLLAPSED)
-|       |   \---packageSpreadsheet +++                           (COLLAPSED)
+|       |   +---packageBuildDashboard +++                       <--- (iii), (COLLAPSED) : used in main to build the dashboard for each tab
+|       |   |
+|       |   +---packageIconEditing +++                          <--- (iv), (COLLAPSED)  : scales and converts icons and logos used for the panel and
+|       |   |                                                                             the JButtons 
+|       |   |
+|       |   +---packageJButtons +++                             <--- (v), (COLLAPSED)   : sets up the action events (listener) for each JButton   
+|       |   |
+|       |   \---packageSpreadsheet +++                          <--- (vi), (COLLAPSED)  : reads in spreadsheet data and determines column and row 
+|       |                                                                                 numbers
 |       |
-|       \---resources                                            <--- (3) Configuration file defining paths amd spreadsheet sizes
-|           |   config.properties
-|           +---icons +++                                        (COLLAPSED)
-|           +---images +++                                       (COLLAPSED)
+|       \---resources
+|           |   config.properties                               <--- (vii)              : Configuration file defining titles, colors, icons and logos
 |           |
-|           \---spreadsheetFiles
-|                   BUTTON_AUTOSTAR2.xlsx
-|                   BUTTON_AUTOSTAR3.xlsx
-|                   BUTTON_AUTOSTART.xlsx
+|           +---icons +++                                       <--- (viii), (COLLAPSED): icons used for the individual JButtons
+|           +---images +++                                      <--- (ix), (COLLAPSED)  : image used to place your identity or company logo
+|           |
+|           \---spreadsheetFiles                                <--- (x)                : spreadsheet files used to define JButton names, 
+|                   Internet.xlsx                                                         paths, colors, icons and positions within the array
+|                   SSD local.xlsx
+|                   Starttab.xlsx
 |
-\---target
-    |   Actionbutton-Dashboard-jar-with-dependencies.jar         <--- (2) Executable JAR, will be updated when modifying the Spreadsheet
+\---target                                                      <--- (1) Target path to be copied to your the local folder of your choice
+    |   Actionbutton-Dashboard-jar-with-dependencies.jar        <--- (2) Executable JAR, will be updated when modifying the Spreadsheet
     |   Actionbutton-Dashboard.jar
     |
-    +---classes +++                                              (COLLAPSED)
-    +---generated-sources +++                                    (COLLAPSED)
-    +---maven-archiver +++                                       (COLLAPSED)
-    +---maven-status +++                                         (COLLAPSED)
+    +---classes +++                                             (COLLAPSED)
+    +---generated-sources +++                                   (COLLAPSED)
+    +---maven-archiver +++                                      (COLLAPSED)
+    +---maven-status +++                                        (COLLAPSED)
     \---src
-        |   config.properties
+        |   config.properties                                   <--- (3)                : Configuration file defining titles, colors, icons and logos
         |
         \---main
-            +---java +++                                         (COLLAPSED)
+            +---java +++                                        (COLLAPSED)
             |
             \---resources
-                +---icons +++                                    (COLLAPSED)
-                +---images +++                                   (COLLAPSED)
+                +---icons +++                                   <--- (4), (COLLAPSED)   : icons used for the individual JButtons
+                +---images ++++                                 <--- (5), (COLLAPSED)   : image used to place your identity or company logo
                 |
-                \---spreadsheetFiles
-                        BUTTON_AUTOSTART.xlsx                     <--- (1) Spreadsheet to be modified
-
-    
-    
+                \---spreadsheetFiles                            <--- (6)                : spreadsheet-workbooks used to define JButton names, 
+                        Internet.xlsx                                                     paths, colors, icons and positions within the array
+                        SSD local.xlsx
+                        Starttab.xlsx
 ```
 [//]: # (tree /a /f)
 
-## <a id='example'></a> Example
-## <a id='PlannedUpdates'></a> Planned Updates
-## <a id='contributors&credits'></a> Contributors & Credits
+
 ## <a id='license'></a> License
 This work is published under the GPL-2.0 license.
+
 
 ## <a id='ContributorsAcknowledgments'></a> Contributors & Acknowledgments
 Many thanks to the comber.io admin for inspirations, code reviews and for initializing the bio-century.net website.
 
-## <a id='Sources'></a> Sources
 
+## <a id='Sources'></a> Sources
 - https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java 
 - https://stackoverflow.com/questions/13438871/log4j2-configuring
 - https://mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/
@@ -133,6 +169,8 @@ Many thanks to the comber.io admin for inspirations, code reviews and for initia
 - https://www.youtube.com/watch?v=816wduoH9eY
 - https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
 
+- https://www.youtube.com/watch?v=mS0GOFx7KEQ <br> (How to Read Excel File in Java by Programming Guru)
+
+
 ## <a id='contact'></a> Contact
 info@bio-century.net
-
