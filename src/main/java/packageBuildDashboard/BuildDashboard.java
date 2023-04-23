@@ -13,17 +13,13 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import packageIconEditing.IconEditingImageTransform;
-//import packageIconEditing.IconEditingImageTransformJButton;
 import packageJButtons.JButtonsSetUpActionListener;
 import packageSpreadsheet.SpreadsheetReadCellData;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.swing.border.*;
@@ -40,6 +36,7 @@ import static packageIconEditing.IconEditingImageTransformJButton.merge;
 // https://stackoverflow.com/questions/57075145/what-element-controls-the-color-of-the-thin-strip-between-jpanel-and-jtabbedpane
 // https://stackoverflow.com/questions/15694107/how-to-layout-multiple-panels-on-a-jframe-java
 // https://www.tutorialspoint.com/how-can-we-detect-an-event-when-the-mouse-moves-over-any-component-in-java
+
 
 public class BuildDashboard {
 
@@ -71,6 +68,7 @@ public class BuildDashboard {
 
     ) throws IOException {
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (02.01)                       Read-In all Spreadsheet Cells                               //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,17 +80,12 @@ public class BuildDashboard {
         JLabel[] myLabelsBlanks = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
         JLabel[] myLabelstext = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
 
-
-
-//        String[][] myCategoriesAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myUrlAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myColorAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myMouserOverText = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
         String[][] myTestAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myIconJButton = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
-
-//        ImageIcon TAB_ICON = new ImageIcon[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
 
         ImageIcon myImageLogo = IconEditingImageTransform.ImageTransform(IMAGE_LOGO_WIDTH, IMAGE_LOGO_HEIGHT, USER_DIR_IMAGES + IMAGE_LOGO);
 
@@ -116,8 +109,6 @@ public class BuildDashboard {
         int ii = 0;
         int jj = 0;
         int kk = 0;
-//        JLabel label = new JLabel("Move the mouse moves over this JLabel");
-//        JLabel label23 = new JLabel("Move JLabel");
 
         try {
             Workbook workbook = new XSSFWorkbook(SPREADSHEET_ALL);
@@ -157,13 +148,9 @@ public class BuildDashboard {
                     String colorallfg;
                     colorallfg = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, 0, j, "color");
                     String[] mySpreadSheetColorRGB = colorallfg.split(",");
-//                    String[] mySpreadSheetColorRGB = myColorAll[i][j].split(",");
                     int mySpreadSheetColorR;
                     int mySpreadSheetColorG;
                     int mySpreadSheetColorB;
-//                    System.out.println(mySpreadSheetColorRGB[0]);
-//                    System.out.println(mySpreadSheetColorRGB[1]);
-//                    System.out.println(mySpreadSheetColorRGB[2]);
                     mySpreadSheetColorR = Integer.parseInt(mySpreadSheetColorRGB[0]);
                     mySpreadSheetColorG = Integer.parseInt(mySpreadSheetColorRGB[1]);
                     mySpreadSheetColorB = Integer.parseInt(mySpreadSheetColorRGB[2]);
@@ -178,13 +165,7 @@ public class BuildDashboard {
                     myLabelsBlanks[jj].setHorizontalAlignment(JLabel.CENTER);
                     myLabelsBlanks[jj].setVerticalAlignment(JLabel.CENTER);
                     jj++;
-                } else {
-
-//                    BufferedImage bi = ImageIO.read(new File("./hdd.png"));
-//                    BufferedImage bi2 = ImageIO.read(new File("./hdd.png"));
-//        Image left = createImage(size, Color.YELLOW);
-
-//                    Image merged = merge(bi2, bi);
+                } else {;
                     myIconJButton[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "icons");
 
                     if (myIconJButton[i][j]=="") {
@@ -207,7 +188,6 @@ public class BuildDashboard {
                         myButtons[kk] = new JButton(MyImageToBeTransformed);
                     }
 
-//                    myButtons[kk] = new JButton(TAB_ICON[i][j]);
                     myButtons[kk].setBackground(new Color(
                             Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[0]),
                             Integer.parseInt(MY_COLOR_JBUTTON_BACKGROUND_ALL[1]),
@@ -225,21 +205,16 @@ public class BuildDashboard {
                     myButtons[kk].setForeground(new Color(values_int1, values_int2, values_int3));
                     myButtons[kk].setFont(new Font(FONTNAME, Font.PLAIN, 14));
                     myButtons[kk].setText("   " + myFieldnamesAll[i][j]);
-//                    myLabelstext[kk]  = new JLabel(myFieldnamesAll[i][j]);
-
 
                     Border border = new LineBorder(new Color(values_int1, values_int2, values_int3), 1);
                     myButtons[kk].setBorder(border);
-
-
-//                    Image img = ImageIO.read(getClass().getResource(USER_DIR_IMAGES + IMAGE_LOGO));
-//                    myButtons[kk].setIcon(new ImageIcon(img));
 
                     if (String.valueOf(myTestAll[i][j]) != "") {
                         myButtons[kk].setToolTipText(String.valueOf(myTestAll[i][j]));
                     }
 
                     int finalLl = kk;
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (02.02)                   Define JButton-Colors on Mouse-Events                           //
@@ -254,9 +229,6 @@ public class BuildDashboard {
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[1]),
                                     Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_OVER_ALL[2])
                                     ));
-//                            myPanelNavigation.   setLayout(new JLabel(String.valueOf(myTestAll[finalI][finalJ]), JLabel.CENTER), BorderLayout.CENTER);
-//                            myPanelNavigation.remove(1);
-//                            myPanelNavigation.add(new JLabel(String.valueOf(myTestAll[finalI][finalJ]), JLabel.CENTER), BorderLayout.CENTER);
                         }
                         public void mousePressed(java.awt.event.MouseEvent evt) {
                             myButtons[finalLl].setBackground(new Color(
@@ -282,8 +254,6 @@ public class BuildDashboard {
                                             Integer.parseInt(MY_COLOR_JBUTTON_MOUSE_EXCITED_ALL[2])
                                     )
                             );
-//                            myPanelNavigation.remove(1);
-//                            myPanelNavigation.add(new JLabel("", JLabel.CENTER), BorderLayout.CENTER);
                         }
 
                     });
@@ -298,10 +268,8 @@ public class BuildDashboard {
         mainPanel.setLayout(new GridBagLayout());
 
         JPanel myPanelJButtonArray = new JPanel();
-//        myPanelJButtonArray.setLayout(new GridLayout(SpreadSheetDimensions[0], SpreadSheetDimensions[1], 7, 2));
         myPanelJButtonArray.setLayout(new GridLayout(NUMBER_OF_ROWS_MAX, SpreadSheetDimensions[1], 7, 2));
-//        SpreadSheetDimensions[0] //Rows
-//        SpreadSheetDimensions[1] //Columns
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (02.03)                      Add Action-Listeners to JButtons                             //
@@ -337,7 +305,6 @@ public class BuildDashboard {
                     myPanelJButtonArray.add(new JLabel(""));
             }
         }
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

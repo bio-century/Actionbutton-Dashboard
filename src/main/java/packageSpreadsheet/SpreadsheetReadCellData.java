@@ -22,10 +22,9 @@ import static org.apache.poi.xslf.usermodel.XSLFTableStyle.TablePartStyle.lastRo
 // https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum--
 // https://www.youtube.com/watch?v=816wduoH9eY
 // https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
+// https://stackoverflow.com/questions/43645607/java-check-workbook-contains-a-specific-spreadsheet-or-not-using-apache-poi
 
 public class SpreadsheetReadCellData {
-//    public String ReadSpreadsheet(String SPREADSHEET_NAME, int vRow, int vColumn, int vsheet, int wbook) {
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //  (02)                     Read-In a Single Cell of a Spreadsheet-Workbook                      //
@@ -36,17 +35,7 @@ public class SpreadsheetReadCellData {
         try {
             FileInputStream fis = new FileInputStream(SPREADSHEET_NAME);
             wb = new XSSFWorkbook(fis);
-            //        spreadsheet = workbook.getSheet("sheet1");
 
-//            wb.getAllNames();//    getSheet(vsheet).exists()
-
-//            Sheet sheet2 = wb.createSheet("test");
-            // https://stackoverflow.com/questions/43645607/java-check-workbook-contains-a-specific-spreadsheet-or-not-using-apache-poi
-            // Check if the workbook is empty or not
-//        if (wb.getSheet(vsheet) == null) {
-            // Create new sheet to the workbook if empty
-//            sheet2 = wb.createSheet("test");
-//        }
             int numberOfSheets = wb.getNumberOfSheets();
 //            System.out.println("Total Number of Sheets: " + numberOfSheets);
             String sheetNames;//    getSheetNames();
@@ -57,8 +46,6 @@ public class SpreadsheetReadCellData {
                 if (sheetNames.indexOf("comments") ==0) {
                     testavailable = 1;
                 }
-//                System.out.println("tA " + sheetNames);
-//                System.out.println("tA " + testavailable);
             }
             Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
 //            System.out.println("tA " + testavailable);
@@ -69,7 +56,6 @@ public class SpreadsheetReadCellData {
                 wb.write(fileOut);
             }
 
-
             int testavailable2 = 0;
             for (int i = 0 ; i < numberOfSheets; i ++ ) {
                 sheetNames = wb.getSheetName(i);
@@ -77,8 +63,6 @@ public class SpreadsheetReadCellData {
                 if (sheetNames.indexOf("icons") ==0) {
                     testavailable2 = 1;
                 }
-//                System.out.println("tA " + sheetNames);
-//                System.out.println("tA " + testavailable);
             }
 //            System.out.println("tA " + testavailable);
             if (testavailable2 == 0) {
@@ -88,12 +72,6 @@ public class SpreadsheetReadCellData {
                 wb.write(fileOut);
             }
 
-
-
-
-
-
-//            try {
                 Row row = sheet.getRow(vRow);
                 if (row != null) {
                     Cell cell = row.getCell(vColumn);
@@ -106,20 +84,11 @@ public class SpreadsheetReadCellData {
                     value = "";
                 }
 
-
-//            } finally {
-//                value = "END OF COLUMN";
-//
-//            }
-//
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-
-
-
 
         return value;
     }

@@ -73,8 +73,9 @@ project is to have an Actionbutton-Dashboard with a target folder outcome, that 
 Thanks for your inspirations!
 - [ ] Wrap config-file parameter into structures
 - [ ] Eliminating ```Cleaning up unclosed ZipFile for archive```-warning
-- [ ] Idea 2
-- [ ] Idea 3
+- [ ] Add modifyable-tabcolors-option
+- [ ] Next Idea 1
+- [ ] Next Idea 2
 
 ## <a id='folderstructure'></a> Folder structure
 ```
@@ -170,6 +171,7 @@ Many thanks to the comber.io admin for inspirations, code reviews and for initia
 - https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
 
 - https://www.youtube.com/watch?v=mS0GOFx7KEQ <br> (How to Read Excel File in Java by Programming Guru)
+- https://getbootstrap.com/
 
 
 ## <a id='contact'></a> Contact

@@ -3,12 +3,9 @@ package packageIconEditing;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-
-
 // source:
 // http://www.java2s.com/Tutorials/Java/Graphics_How_to/Draw/Paint_2_images_side_by_side.htm
 // http://www.java2s.com/Code/Java/2D-Graphics-GUI/MakeimageTransparency.htm
-
 
 public class IconEditingImageTransformJButton {
 

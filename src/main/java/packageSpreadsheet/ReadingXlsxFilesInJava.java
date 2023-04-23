@@ -14,15 +14,12 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import static java.lang.Math.*;
-//https://www.youtube.com/watch?v=mS0GOFx7KEQ
 
-//        How to Read Excel File in Java with Apache POI | Read Excel in Java | NetBeans IDE
-//        Programming Guru
-
+// sources:
+// https://www.youtube.com/watch?v=mS0GOFx7KEQ
+// (How to Read Excel File in Java by Programming Guru)
 
 public class ReadingXlsxFilesInJava {
-
-//    public JPanel myPanelCat;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //  (02)                                     Build Dashboard                                      //
@@ -30,7 +27,6 @@ public class ReadingXlsxFilesInJava {
     public int[] ReadingXlsxFilesInJava(String SPREADSHEET_ALL) throws IOException {
         Workbook wb = null;
         FileInputStream fins = new FileInputStream(SPREADSHEET_ALL);
-        // wb = WorkbookFactory.create(fins);
         wb = new XSSFWorkbook(fins);
         Sheet sheet = wb.getSheetAt(0);
         FormulaEvaluator formulaEval = wb.getCreationHelper().createFormulaEvaluator();
@@ -44,20 +40,11 @@ public class ReadingXlsxFilesInJava {
             jj = jj + 1;
             for (Cell cell : row) {
                 switch (formulaEval.evaluateInCell(cell).getCellType()) {
-//                    case NUMERIC:
-//                        System.out.println(cell.getNumericCellValue()+"\t\t");
-//                        ii = ii + 1;
-//                        break;
                     case STRING:
-//                        System.out.println(cell.getStringCellValue() + "\t\t");
                         ii = ii + 1;
                         kk = kk + 1;
                         iiFinal.add(ii); // columns!!!
                         jjFinal.add(jj); // rows
-
-//                        System.out.println("columns: " + ii);
-//                        System.out.println("rows: " + jj);
-
                         break;
                 }
             }
@@ -71,12 +58,7 @@ public class ReadingXlsxFilesInJava {
             jjFinalMAX = max(jjFinalMAX, jjFinal.get(i+1));
         }
 
-
-
-
         wb.close();
-//        System.out.println("columnsFinal: " + iiFinal);
-//        System.out.println("rowsFinal: " + jjFinal);
         int[] results = new int[2];
         results[0] = iiFinalMAX; // columns!!!
         results[1] = jjFinalMAX; // rows

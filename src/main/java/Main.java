@@ -25,22 +25,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-
-
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Cell;
-
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import static java.lang.Math.*;
 
 // Sources:
 // https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java
@@ -229,35 +216,21 @@ public class Main {
 
             int aa = 0;
             for (File file : folder.listFiles()) {
-//                datastring[aa] = file.getName();
                 int FILE_NAME_LENGTH = SPREADSHEET_NAMES_ALL[aa].length();
                 datastring[aa] = SPREADSHEET_NAMES_ALL[aa].substring(0, FILE_NAME_LENGTH);
-
-//                System.out.println(datastring[aa].substring(0, FILE_NAME_LENGTH-0));
                 CATEGORY_NAMES[aa] = CATEGORY_TITLES_ALL[aa];
                 SPREADSHEET_ALL[aa] = USER_DIR_SPREADSHEETS + "\\" + datastring[aa] +".xlsx";
 //                System.out.println(SPREADSHEET_ALL[aa]);
                 aa++;
             }
-//            myTabbedPane.setBackground(new Color(100, 10, 52));
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //  (06)                              Create Actionbutton-Dashboard                               //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
             BuildDashboard[] BD = new BuildDashboard[aa];
             JPanel[] JPanel = new JPanel[aa];
-
             JTabbedPane myTabbedPane = new JTabbedPane();
-//            JTabbedPane[] myTabbedPane = new JTabbedPane[aa];
-
-//            System.out.println("aa is currently: " + String.valueOf(aa));
-
             ImageIcon[] TAB_ICON = new ImageIcon[aa];
-
 
             List<Integer> NUMBER_OF_ROWS_TMP = new ArrayList<Integer>();
             List<Integer> NUMBER_OF_COLUMNS_TMP = new ArrayList<Integer>();
@@ -280,13 +253,12 @@ public class Main {
             System.out.println("columnsFinal: " + NUMBER_OF_ROWS_MAX);
             System.out.println("rowsFinal: " + NUMBER_OF_COLUMNS_MAX);
 
-
-
             for (int i = 0; i < aa; i++) {
                 int[] Columnscount = new ReadingXlsxFilesInJava().ReadingXlsxFilesInJava(SPREADSHEET_ALL[i]);
 //                System.out.println("FINALii: "+Columnscount[0]+", FINALjj: "+Columnscount[1]);
                 NUMBER_OF_ROWS=Columnscount[1];
                 NUMBER_OF_COLUMNS=Columnscount[0];
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (06.01)                      Build Objects on JButton-Arrays                              //
@@ -324,6 +296,7 @@ public class Main {
                 TAB_ICON[i] = IconEditingImageTransform.ImageTransform(30, 30, USER_DIR_ICONS + TAB_ICON_NAME_ALL[i]);
                 UIManager.put("TabbedPane.selected", new Color(176,135,200));
 //                System.out.println(String.valueOf(i));
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (06.02)                              Set Up TabPanel                                      //
