@@ -1,8 +1,10 @@
 # The Actionbutton-Dashboard Project
 
 # Abstract
-Sick and tired of endless navigation through directories and bookmark inventories? The Actionbutton-Dashboard-project
-sets up a configurable array of JButtons which can open local apps, folders and websites. <br>
+Sick and tired of endlessly navigating through directories and bookmark inventories as part of your everyday-workflow? The 
+Actionbutton-Dashboard-project enables you to set up a easy-to-configure array of JButtons which can open local apps, folders, network drives 
+as well as intranet and internet websites. The array is then depicted in a graphical interface:
+<br>
 ![Screenshot_Actionbutton-Dashboard](./README_Images/Screenshot_Actionbutton-Dashboard_slim.png) <br>
 All buttons can be defined individually according to your needs by using simple spreadsheet configuration tables. 
 After you are done with defining button names, paths and colors, just double-click on the jar file (fatjar) and the JButton-window will open. <br>
