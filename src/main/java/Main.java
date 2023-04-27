@@ -20,7 +20,6 @@ import javax.swing.*;
 
 import static java.lang.Math.max;
 import static javax.swing.UIManager.*;
-//import static packageConfig.Config.*;
 
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -137,7 +136,6 @@ public class Main {
 
             String MY_FRAME_BACKGROUND = prop.getProperty("MY_FRAME_BACKGROUND");
             String MY_FRAME_BACKGROUND_TRIMMED = MY_FRAME_BACKGROUND.replaceAll(" ","");
-//            String[] MY_FRAME_BACKGROUND_ALL = MY_FRAME_BACKGROUND_TRIMMED.split(",");
 
 
             // Tab Icons

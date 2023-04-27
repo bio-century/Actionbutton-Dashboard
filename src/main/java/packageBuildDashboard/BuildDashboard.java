@@ -77,7 +77,6 @@ public class BuildDashboard {
         JButton[] myButtons = new JButton[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
         JLabel[] myLabels = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
         JLabel[] myLabelsBlanks = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
-//        JLabel[] myLabelstext = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
 
         String[][] myUrlAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myColorAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];

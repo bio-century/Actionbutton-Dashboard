@@ -2,16 +2,16 @@
 
 # Abstract
 Sick and tired of endlessly navigating through directories and bookmark inventories as part of your everyday-workflow? The 
-Actionbutton-Dashboard-project enables you to set up a easy-to-configure array of JButtons which can open local apps, folders, network drives 
-as well as intranet and internet websites. The array is then depicted in a graphical interface:
+Actionbutton-Dashboard-project enables you to set up an easy-to-configure array of JButtons, which can open local apps, folders, network drives 
+as well as intranet and internet websites. The array is depicted as a graphical interface:
 <br>
 <img src="./README_Images/Screenshot_Actionbutton-Dashboard_slim.png" width="50%"><br><br>
-All buttons can be defined individually according to your needs by using simple spreadsheet configuration tables. 
-After you are done with defining button names, paths and colors, just double-click on the jar file (fatjar) and the JButton-window will open. <br>
+All buttons can be customized to your needs by using simple spreadsheet-based configuration tables. 
+After you are done with defining button names, paths and colors, just double-click on the jar file (fat-jar) and the JButton-window will open up. <br>
 <img src="./README_Images/Screenshot_Spreadsheet.png" width="40%"><br>
-An optional field for logos will give companies the opportunity to introduce their corporate identity design.<br><br>
-PLEASE NOTE: Everything can be setup quite easily, you don't need to have programming experience at all to get some beautiful results. Just check 
-out the step-by-step manual in the [Getting Started](#gettingstarted) section
+An optional field for logos gives you some space to place a company logo in order to give the panel a professional touch. <br><br>
+NOTE: Everything can be setup quite easily, you don't need to have programming skills at all to get some beautiful results. Just check 
+out the step-by-step manual in the [Getting Started](#gettingstarted) section!
 
 # Table of Content
 - [Getting Started](#gettingstarted)
@@ -23,7 +23,7 @@ out the step-by-step manual in the [Getting Started](#gettingstarted) section
 
 
 ## <a id='gettingstarted'></a> Getting Started
-This section is subdivided into a [Manual For USERS](#ManualForUSERS) and a [Manual For Programmers](#ManualForProgrammers) (i.e. experts).
+This section is subdivided into a [Manual For USERS](#ManualForUSERS) and a [Manual For PROGRAMMERS](#ManualForProgrammers) (i.e. experts).
 
 ### <a id='ManualForUSERS'></a> Manual For USERS
 This is a step-by-step manual for users. Everything you need to set up your Actionbutton-Dashboard can be found in the target 
@@ -51,7 +51,7 @@ extra hints:
 - Open a shell in the jar-file directory (e.g. for Windows: cmd).
 - Type ```java -jar Actionbutton-Dashboard-jar-with-dependencies.jar```.
 
-### <a id='ManualForProgrammers'></a> Manual For Programmers
+### <a id='ManualForProgrammers'></a> Manual For PROGRAMMERS
 First of all: Your contributions, ideas and feedback is very welcome. Also please be patient if merge requests are pending due to a limited 
 amount of time. This work is structured due to my knowledge of Java practises:
 - (i)   : The pom.xml file generated with the help of Maven defining dependencies, importing packages and copy the resources into the target folder.
@@ -68,14 +68,15 @@ amount of time. This work is structured due to my knowledge of Java practises:
   formatting support.
 
 ### <a id='InspirationsandToDos'></a> Inspirations & ToDo's
-To all you software developer out there, this is a section where ideas can be collected^^. Please take into account, that the general focus of this 
-project is to have an Actionbutton-Dashboard with a target folder outcome, that can be configured by anyone in an easy-to-comprehend manner! 
-Thanks for your inspirations!
+To all you software developer out there, this is a section where ideas can be placed :). Please consider, that the general 
+focus of this project is to have an Actionbutton-Dashboard with maximum accessibility, so that it can be configured by 
+anyone in an easy manner...Thanks for your inspirations!
 - [ ] Wrap config-file parameter into structures
-- [ ] Eliminating ```Cleaning up unclosed ZipFile for archive```-warning
+- [ ] Eliminating ```Cleaning up unclosed ZipFile for archive```-Warning
 - [ ] Add modifyable-tabcolors-option
 - [ ] Next Idea 1
 - [ ] Next Idea 2
+- [ ] ...
 
 ## <a id='folderstructure'></a> Folder structure
 ```
@@ -150,28 +151,28 @@ Many thanks to the comber.io admin for inspirations, code reviews and for initia
 
 
 ## <a id='Sources'></a> Sources
-- https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java 
-- https://stackoverflow.com/questions/13438871/log4j2-configuring
-- https://mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/
-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml/3.9
-- https://www.javatpoint.com/how-to-read-excel-file-in-java
-- https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
-- https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum--
+https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java <br> 
+https://stackoverflow.com/questions/13438871/log4j2-configuring <br>
+https://mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/ <br>
+https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml/3.9 <br>
+https://www.javatpoint.com/how-to-read-excel-file-in-java <br>
+https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file <br>
+https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum-- <br> <br>
 
-- https://www.youtube.com/watch?v=816wduoH9eY
-- https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
-- https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
-- https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
-- https://stackoverflow.com/questions/57075145/what-element-controls-the-color-of-the-thin-strip-between-jpanel-and-jtabbedpane
-- https://stackoverflow.com/questions/15694107/how-to-layout-multiple-panels-on-a-jframe-java
+https://www.youtube.com/watch?v=816wduoH9eY <br>
+https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener <br>
+https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html <br>
+https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html <br>
+https://stackoverflow.com/questions/57075145/what-element-controls-the-color-of-the-thin-strip-between-jpanel-and-jtabbedpane <br>
+https://stackoverflow.com/questions/15694107/how-to-layout-multiple-panels-on-a-jframe-java <br> <br>
 
-- https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
-- https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum--
-- https://www.youtube.com/watch?v=816wduoH9eY
-- https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener
+https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file <br>
+https://poi.apache.org/apidocs/dev/org/apache/poi/hssf/usermodel/HSSFRow.html#getLastCellNum-- <br>
+https://www.youtube.com/watch?v=816wduoH9eY <br>
+https://coderanch.com/t/657887/java/Pausing-loop-wait-response-actionListener <br> <br>
 
-- https://www.youtube.com/watch?v=mS0GOFx7KEQ <br> (How to Read Excel File in Java by Programming Guru)
-- https://getbootstrap.com/
+https://www.youtube.com/watch?v=mS0GOFx7KEQ <br> (How to Read Excel File in Java by Programming Guru) <br>
+https://getbootstrap.com/ <br>
 
 
 ## <a id='contact'></a> Contact
