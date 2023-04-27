@@ -18,11 +18,11 @@ public class IconEditingImageTransform {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //  (02)                           Image-Transform for Icons and Logos                            //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static ImageIcon ImageTransform(int w, int h, String path) {
+    public static ImageIcon ImageTransform(int WIDTH, int HEIGHT, String DIR_IMAGE2TRANFORM) {
 
-        ImageIcon MyImageToBeTransformed = new ImageIcon(path);
+        ImageIcon MyImageToBeTransformed = new ImageIcon(DIR_IMAGE2TRANFORM);
         Image myImage = MyImageToBeTransformed.getImage();
-        Image myTransformedImage = myImage.getScaledInstance(w, h, java.awt.Image.SCALE_SMOOTH);
+        Image myTransformedImage = myImage.getScaledInstance(WIDTH, HEIGHT, java.awt.Image.SCALE_SMOOTH);
         MyImageToBeTransformed = new ImageIcon(myTransformedImage);
         return MyImageToBeTransformed;
     }

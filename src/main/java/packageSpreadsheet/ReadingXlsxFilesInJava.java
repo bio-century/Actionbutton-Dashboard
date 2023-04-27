@@ -30,7 +30,7 @@ public class ReadingXlsxFilesInJava {
         wb = new XSSFWorkbook(fins);
         Sheet sheet = wb.getSheetAt(0);
         FormulaEvaluator formulaEval = wb.getCreationHelper().createFormulaEvaluator();
-        int ii = 0; // columns!!!
+        int ii = 0; // columns
         int jj = 0; // rows
         List<Integer> iiFinal = new ArrayList<Integer>();
         List<Integer> jjFinal = new ArrayList<Integer>();
@@ -43,7 +43,7 @@ public class ReadingXlsxFilesInJava {
                     case STRING:
                         ii = ii + 1;
                         kk = kk + 1;
-                        iiFinal.add(ii); // columns!!!
+                        iiFinal.add(ii); // columns
                         jjFinal.add(jj); // rows
                         break;
                 }
@@ -59,10 +59,10 @@ public class ReadingXlsxFilesInJava {
         }
 
         wb.close();
-        int[] results = new int[2];
-        results[0] = iiFinalMAX; // columns!!!
-        results[1] = jjFinalMAX; // rows
-        return results;
+        int[] myResults = new int[2];
+        myResults[0] = iiFinalMAX; // columns
+        myResults[1] = jjFinalMAX; // rows
+        return myResults;
 
     }
 

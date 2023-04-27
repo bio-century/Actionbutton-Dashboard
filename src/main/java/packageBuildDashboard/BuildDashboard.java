@@ -39,7 +39,6 @@ import static packageIconEditing.IconEditingImageTransformJButton.merge;
 
 
 public class BuildDashboard {
-
     public JPanel myPanelCat;
 
 
@@ -78,7 +77,7 @@ public class BuildDashboard {
         JButton[] myButtons = new JButton[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
         JLabel[] myLabels = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
         JLabel[] myLabelsBlanks = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
-        JLabel[] myLabelstext = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
+//        JLabel[] myLabelstext = new JLabel[(NUMBER_OF_ROWS + 1) * NUMBER_OF_COLUMNS];
 
         String[][] myUrlAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
         String[][] myColorAll = new String[NUMBER_OF_ROWS][NUMBER_OF_COLUMNS];
@@ -129,7 +128,6 @@ public class BuildDashboard {
             for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
                 ColRowCounts[j] = 0;
                 myFieldnamesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "fieldnames");
-//                myCategoriesAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "category");
                 myUrlAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "URL");
                 myColorAll[i][j] = MySpreadsheet.ReadSpreadsheet(SPREADSHEET_ALL, i, j, "color");
 
@@ -175,7 +173,6 @@ public class BuildDashboard {
                         Image myImage = MyImageToBeTransformed2.getImage();
                         ImageIcon TAB_ICON = IconEditingImageTransform.ImageTransform(3, 25, USER_DIR_ICONS + "blank.png");
                         Image merged = merge(TAB_ICON.getImage(), myImage);
-                        //                    myImageLogo
                         ImageIcon MyImageToBeTransformed = new ImageIcon(merged);
                         myButtons[kk] = new JButton(MyImageToBeTransformed);
                     } else{
@@ -183,7 +180,6 @@ public class BuildDashboard {
                         Image myImage = MyImageToBeTransformed2.getImage();
                         ImageIcon TAB_ICON = IconEditingImageTransform.ImageTransform(3, 25, USER_DIR_ICONS + "blank.png");
                         Image merged = merge(TAB_ICON.getImage(), myImage);
-                        //                    myImageLogo
                         ImageIcon MyImageToBeTransformed = new ImageIcon(merged);
                         myButtons[kk] = new JButton(MyImageToBeTransformed);
                     }
@@ -301,7 +297,6 @@ public class BuildDashboard {
 
         if (NUMBER_OF_ROWS < NUMBER_OF_ROWS_MAX) {
             for (int rr = NUMBER_OF_ROWS; rr < (NUMBER_OF_ROWS_MAX-NUMBER_OF_ROWS)*NUMBER_OF_COLUMNS; rr++) {
-//                System.out.println("rr: "+rr);
                     myPanelJButtonArray.add(new JLabel(""));
             }
         }
@@ -334,7 +329,6 @@ public class BuildDashboard {
         Font myFontTabTitle = new Font(FONTNAME, Font.PLAIN, 22);
 
         this.myPanelCat = myPanelCat;
-
         this.myPanelCat.add(myPanelJButtonArray, myGridBag);
         this.myPanelCat.setSize(500,500);
 

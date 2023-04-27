@@ -10,12 +10,10 @@
 package packageSpreadsheet;
 
 import java.io.*;
+import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import java.io.IOException;
-
-import static org.apache.poi.xslf.usermodel.XSLFTableStyle.TablePartStyle.lastRow;
 
 // sources:
 // https://stackoverflow.com/questions/2194284/how-to-get-the-last-column-index-reading-excel-file
@@ -25,6 +23,7 @@ import static org.apache.poi.xslf.usermodel.XSLFTableStyle.TablePartStyle.lastRo
 // https://stackoverflow.com/questions/43645607/java-check-workbook-contains-a-specific-spreadsheet-or-not-using-apache-poi
 
 public class SpreadsheetReadCellData {
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //  (02)                     Read-In a Single Cell of a Spreadsheet-Workbook                      //
@@ -37,38 +36,32 @@ public class SpreadsheetReadCellData {
             wb = new XSSFWorkbook(fis);
 
             int numberOfSheets = wb.getNumberOfSheets();
-//            System.out.println("Total Number of Sheets: " + numberOfSheets);
-            String sheetNames;//    getSheetNames();
-            int testavailable = 0;
-            for (int i = 0 ; i < numberOfSheets; i ++ ) {
-                sheetNames = wb.getSheetName(i);
+            String sheetNames;
+            int myCommentsAvailable = 0;
+            for (int ii = 0; ii < numberOfSheets; ii++ ) {
+                sheetNames = wb.getSheetName(ii);
 
                 if (sheetNames.indexOf("comments") ==0) {
-                    testavailable = 1;
+                    myCommentsAvailable = 1;
                 }
             }
-            Sheet sheet = wb.getSheet(vsheet);//   getSheet(vsheet);
-//            System.out.println("tA " + testavailable);
-            if (testavailable == 0) {
-                OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
 
-                Sheet sheet2 = wb.createSheet("comments");
+            Sheet sheet = wb.getSheet(vsheet);
+            if (myCommentsAvailable == 0) {
+                OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
                 wb.write(fileOut);
             }
 
-            int testavailable2 = 0;
-            for (int i = 0 ; i < numberOfSheets; i ++ ) {
-                sheetNames = wb.getSheetName(i);
-
+            int myIconsAvailable = 0;
+            for (int ii = 0; ii < numberOfSheets; ii++ ) {
+                sheetNames = wb.getSheetName(ii);
                 if (sheetNames.indexOf("icons") ==0) {
-                    testavailable2 = 1;
+                    myIconsAvailable = 1;
                 }
             }
-//            System.out.println("tA " + testavailable);
-            if (testavailable2 == 0) {
-                OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
 
-                Sheet sheet2 = wb.createSheet("icons");
+            if (myIconsAvailable == 0) {
+                OutputStream fileOut = new FileOutputStream(SPREADSHEET_NAME);
                 wb.write(fileOut);
             }
 
