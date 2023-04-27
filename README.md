@@ -15,12 +15,16 @@ out the step-by-step manual in the [Getting Started](#gettingstarted) section!
 
 # Table of Content
 - [Getting Started](#gettingstarted)
+  - [Manual For USERS](#ManualForUSERS)
+  - [Manual For Programmers](#ManualForProgrammers)
+  - [Inspirations & ToDo's](#InspirationsandToDos)
 - [Folder structure](#folderstructure)
+- [Configuration File (config.properties)](#ConfigFile)
+- [Spreadsheet Files](#SpreadSheet)
 - [License](#license)
 - [Contributors & Acknowledgments](#Contributors&Acknowledgments)
 - [Sources](#Sources)
 - [Contact](#contact)
-
 
 ## <a id='gettingstarted'></a> Getting Started
 This section is subdivided into a [Manual For USERS](#ManualForUSERS) and a [Manual For PROGRAMMERS](#ManualForProgrammers) (i.e. experts).
@@ -32,18 +36,13 @@ folder. Please check out section [Folder structure](#folderstructure) as referen
 - Run the jar file named ```Actionbutton-Dashboard-jar-with-dependencies.jar``` ([Folder structure](#folderstructure): 2) as a first test. If this 
   doesn't work, check out if a Java Software Development Kit (SDK) is installed on your computer. Manuals can be found everywhere, e.g. on         
   <a href="https://www.geeksforgeeks.org/download-and-install-java-development-kit-jdk-on-windows-mac-and-linux/">www.geeksforgeeks.org</a>.
-- Set up the configuration file ```config.properties``` ([Folder structure](#folderstructure): 3) to define titles, colors, icons and logos.
+- Set up the configuration file ```config.properties``` ([Folder structure](#folderstructure): 3 and [ConfigFile](#ConfigFile)) to define titles, 
+  colors, icons and logos.
 - Complement ```icons-``` and the ```images-```folder ([Folder structure](#folderstructure): 4 & 5) with your individual layout figures used for 
   the tabs (-> see ```config.properties```) and the JButtons (-> see [Folder structure](#folderstructure): 6, spreadsheet files, tab "icons").
-- Configure the spreadsheet files used for your dashboard ([Folder structure](#folderstructure): 6). There are 5 sheets available in each workbook.
-
-| tab        | explanation                                                                        |
-|------------|------------------------------------------------------------------------------------|
-| fieldnames | words that are imprinted onto the button                                           |
-| URL        | link, that the button is going to open. It can be a file path, a file or a website |
-| color      | RGB-code that defines the color of the button (text and button frame)              |
-| comments   | text that shows up on mouse-over the JButton. If empty, the field will be ignored  |
-| icons      | filename of icon-image for each JButton. If empty, the field will be ignored       |
+- Configure the spreadsheet files used for your dashboard ([Folder structure](#folderstructure): 6 and [Spreadsheet](#spreadsheet)). 
+  There are 5 sheets available in each 
+  workbook.
 
 NOTE: If errors occure leading to the jar-file not being executed, review the template delivered by downloading the repo, which also serves as an 
 example right away. Please pay attention to the proper setting of spaces in the config-file. Moreover, the following procedure might give you 
@@ -140,6 +139,47 @@ anyone in an easy manner...Thanks for your inspirations!
                         Starttab.xlsx
 ```
 [//]: # (tree /a /f)
+
+## <a id='ConfigFile'></a> Configuration File (config.properties)
+| tab                                          | explanation | input values |
+|----------------------------------------------|-------------|--------------|
+| USER_DIR_JAVA                                |             |              |
+| USER_DIR_SPREADSHEETS                        |             |              |
+| USER_DIR_ICONS                               |             |              |
+| USER_DIR_IMAGES                              |             |              |
+| pathtaget                                    |             |              |
+| SPREADSHEET_NAME                             |             |              |
+| CATEGORY_TITLES                              |             |              |
+| CATEGORY_TITLES                              |             |              |
+| FRAME_TITLE                                  |             |              |
+| CATEGORY_TITLES                              |             |              |
+| MOUSEOVER_TEXT                               |             |              |
+| SPREADSHEET_NAMES                            |             |              |
+| FONTNAME                                     |             |              |
+| NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR       |             |              |
+| NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR    |             |              |
+| MY_COLOR_LOGO_BACKGROUND                     |             |              |
+| MY_COLOR_JBUTTON_BACKGROUND                  |             |              |
+| MY_COLOR_JBUTTON_MOUSE_OVER                  |             |              |
+| MY_COLOR_JBUTTON_MOUSE_PRESSED               |             |              |
+| MY_COLOR_JBUTTON_MOUSE_EXCITED               |             |              |
+| MY_COLOR_JBUTTON_ARRAY_BACKGROUND            |             |              |
+| MY_COLOR_JTAB_BACKGROUND                     |             |              |
+| MY_FRAME_BACKGROUND                          |             |              |
+| TAB_ICON_NAME                                |             |              |
+| IMAGE_LOGO                                   |             |              |
+| IMAGE_LOGO_WIDTH                             |             |              |
+| IMAGE_LOGO_HEIGHT                            |             |              |
+
+
+## <a id='SpreadSheet'></a> Spreadsheet Files
+| tab        | explanation                                                                        | input values                                   |
+|------------|------------------------------------------------------------------------------------|------------------------------------------------|
+| fieldnames | Strings that are imprinted onto the button                                         | String (limited space)                         |
+| URL        | link, that the button is going to open. It can be a file path, a file or a website | URLs and local paths as Strings                |
+| color      | RGB-code that defines the individual color of each button (text and button frame)  | Three Numbers from 0-255 seperated by ,        |
+| comments   | text that shows up on mouse-over the JButton. If empty, the field will be ignored  | Strings with extended space                    |
+| icons      | filename of icon-image for each JButton. If empty, the field will be ignored       | Filenames of Images stored in the icons-folder |
 
 
 ## <a id='license'></a> License
