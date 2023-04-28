@@ -5,10 +5,10 @@ Sick and tired of endlessly navigating through directories and bookmark inventor
 Actionbutton-Dashboard-project enables you to set up an easy-to-configure array of JButtons, which can open local apps, folders, network drives 
 as well as intranet and internet websites. The array is depicted as a graphical interface:
 <br>
-<p style="text-align:center;"><img src="./README_Images/Screenshot_Actionbutton-Dashboard_slim.png" width="70%"></p><br><br>
+<img src="./README_Images/Screenshot_Actionbutton-Dashboard_slim.png" width="70%"><br>
 All buttons can be customized to your needs by using simple spreadsheet-based configuration tables. 
 After you are done with defining button names, paths and colors, just double-click on the jar file (fat-jar) and the JButton-window will open up. <br>
-<p style="text-align:center;"><img src="./README_Images/Actionbutton-Dashboard_BiocenturyNet.png" width="70%"></p><br>
+<img src="./README_Images/Actionbutton-Dashboard_BiocenturyNet.png" width="70%"><br>
 An optional field for logos gives you some space to place a company logo in order to give the panel a professional touch. <br><br>
 NOTE: Everything can be setup quite easily, you don't need to have programming skills at all to get some beautiful results. Just check 
 out the step-by-step manual in the [Getting Started](#gettingstarted) section!
