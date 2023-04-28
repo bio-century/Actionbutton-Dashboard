@@ -5,10 +5,10 @@ Sick and tired of endlessly navigating through directories and bookmark inventor
 Actionbutton-Dashboard-project enables you to set up an easy-to-configure array of JButtons, which can open local apps, folders, network drives 
 as well as intranet and internet websites. The array is depicted as a graphical interface:
 <br>
-<img src="./README_Images/Screenshot_Actionbutton-Dashboard_slim.png" width="50%"><br><br>
+<p style="text-align:center;"><img src="./README_Images/Screenshot_Actionbutton-Dashboard_slim.png" width="70%"></p><br><br>
 All buttons can be customized to your needs by using simple spreadsheet-based configuration tables. 
 After you are done with defining button names, paths and colors, just double-click on the jar file (fat-jar) and the JButton-window will open up. <br>
-<img src="./README_Images/Screenshot_Spreadsheet.png" width="40%"><br>
+<p style="text-align:center;"><img src="./README_Images/Actionbutton-Dashboard_BiocenturyNet.png" width="70%"></p><br>
 An optional field for logos gives you some space to place a company logo in order to give the panel a professional touch. <br><br>
 NOTE: Everything can be setup quite easily, you don't need to have programming skills at all to get some beautiful results. Just check 
 out the step-by-step manual in the [Getting Started](#gettingstarted) section!
@@ -53,7 +53,8 @@ extra hints:
 ### <a id='ManualForProgrammers'></a> Manual For PROGRAMMERS
 First of all: Your contributions, ideas and feedback is very welcome. Also please be patient if merge requests are pending due to a limited 
 amount of time. This work is structured due to my knowledge of Java practises:
-- (i)   : The pom.xml file generated with the help of Maven defining dependencies, importing packages and copy the resources into the target folder.
+- (i)   : The pom.xml file generated with the help of Maven, which defines dependencies, importing packages and copy the resources into the target 
+  folder.
 - (ii)  : The Main.java where the ```config.properties```-parameters are imported and the dashboard is built.
 - (iii) : Class used in main to build the dashboard for each tab.
 - (iv)  : Classes used for scaling and converting icons and logos for the panel and the JButtons.
@@ -141,35 +142,24 @@ anyone in an easy manner...Thanks for your inspirations!
 [//]: # (tree /a /f)
 
 ## <a id='ConfigFile'></a> Configuration File (config.properties)
-| tab                                          | explanation | input values |
-|----------------------------------------------|-------------|--------------|
-| USER_DIR_JAVA                                |             |              |
-| USER_DIR_SPREADSHEETS                        |             |              |
-| USER_DIR_ICONS                               |             |              |
-| USER_DIR_IMAGES                              |             |              |
-| pathtaget                                    |             |              |
-| SPREADSHEET_NAME                             |             |              |
-| CATEGORY_TITLES                              |             |              |
-| CATEGORY_TITLES                              |             |              |
-| FRAME_TITLE                                  |             |              |
-| CATEGORY_TITLES                              |             |              |
-| MOUSEOVER_TEXT                               |             |              |
-| SPREADSHEET_NAMES                            |             |              |
-| FONTNAME                                     |             |              |
-| NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR       |             |              |
-| NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR    |             |              |
-| MY_COLOR_LOGO_BACKGROUND                     |             |              |
-| MY_COLOR_JBUTTON_BACKGROUND                  |             |              |
-| MY_COLOR_JBUTTON_MOUSE_OVER                  |             |              |
-| MY_COLOR_JBUTTON_MOUSE_PRESSED               |             |              |
-| MY_COLOR_JBUTTON_MOUSE_EXCITED               |             |              |
-| MY_COLOR_JBUTTON_ARRAY_BACKGROUND            |             |              |
-| MY_COLOR_JTAB_BACKGROUND                     |             |              |
-| MY_FRAME_BACKGROUND                          |             |              |
-| TAB_ICON_NAME                                |             |              |
-| IMAGE_LOGO                                   |             |              |
-| IMAGE_LOGO_WIDTH                             |             |              |
-| IMAGE_LOGO_HEIGHT                            |             |              |
+| tab                                       | explanation                                                | input values                                |
+|-------------------------------------------|------------------------------------------------------------|---------------------------------------------|
+| USER_DIR_JAVA                             | dir of main file                                           | single string                               |
+| USER_DIR_SPREADSHEETS                     | dir of spreadsheet-workbooks                               | single string                               |
+| USER_DIR_ICONS                            | dir of icons for tabs and buttons                          | single string                               |
+| USER_DIR_IMAGES                           | dir of company logo                                        | single string                               |
+| FRAME_TITLE                               | title of the dashboard window                              | single string                               |
+| CATEGORY_TITLES                           | titles (in order) of the categories                        | string array separated by <space>,          |
+| MOUSEOVER_TEXT                            | explanatory text showing up on mouse-over                  | (longer) text as string                     |
+| SPREADSHEET_NAMES                         | file names (in order) of all spreadsheet files             | string array separated by <space>,          |
+| FONTNAME                                  | font name for all labels used (example: Arial)             | single string                               |
+| NUMBER_OF_ROWS_WINDOW_EXPANSION_FACTOR    | scales the window height with respect to amount of rows    | number                                      |
+| NUMBER_OF_COLUMNS_WINDOW_EXPANSION_FACTOR | scales the window height with respect to amount of columns | number                                      |
+| MY_COLOR_*                                | multiple colors defining tab background colors etc.        | 3 integers from 0-255 separated by <space>, |
+| TAB_ICON_NAME                             | file names (in order) of the icons used for the tabs panel | string array separated by <space>,          |
+| IMAGE_LOGO                                | file name of company logo                                  | single string                               |
+| IMAGE_LOGO_WIDTH                          | company logo dimensions: width                             | single string                               |
+| IMAGE_LOGO_HEIGHT                         | company logo dimensions: height                            | single string                               |
 
 
 ## <a id='SpreadSheet'></a> Spreadsheet Files

@@ -134,8 +134,8 @@ public class Main {
             String MY_COLOR_JTAB_BACKGROUND_TRIMMED = MY_COLOR_JTAB_BACKGROUND.replaceAll(" ","");
             String[] MY_COLOR_JTAB_BACKGROUND_ALL = MY_COLOR_JTAB_BACKGROUND_TRIMMED.split(",");
 
-            String MY_FRAME_BACKGROUND = prop.getProperty("MY_FRAME_BACKGROUND");
-            String MY_FRAME_BACKGROUND_TRIMMED = MY_FRAME_BACKGROUND.replaceAll(" ","");
+//            String MY_FRAME_BACKGROUND = prop.getProperty("MY_FRAME_BACKGROUND");
+//            String MY_FRAME_BACKGROUND_TRIMMED = MY_FRAME_BACKGROUND.replaceAll(" ","");
 
 
             // Tab Icons
@@ -166,17 +166,20 @@ public class Main {
             System.out.println("USER_DIR_IMAGES: " + USER_DIR_IMAGES);
             String SPREADSHEET_NAME = null;
             System.out.println("SPREADSHEET_NAME: " + SPREADSHEET_NAME);
-
+            System.out.println("\n");
 
             // Frame Title
+            System.out.println("Frame Title:");
             System.out.println("FRAME_TITLE: " + FRAME_TITLE);
-
+            System.out.println("CATEGORY_TITLES: " + CATEGORY_TITLES_ALL);
+            System.out.println("\n");
 
             // Spreadsheet Specifications
             System.out.println("Spreadsheet Specifications:");
+            System.out.println("Spreadsheet Specifications:");
             System.out.println("SPREADSHEET_NAME: " + SPREADSHEET_NAME);
             System.out.println("SPREADSHEET_NAMES_ALL: " + SPREADSHEET_NAMES_ALL);
-
+            System.out.println("\n");
 
             // Layout Specifications
             System.out.println("Layout Specifications:");
@@ -186,9 +189,10 @@ public class Main {
             System.out.println("MY_COLOR_LOGO_BACKGROUND: " + MY_COLOR_LOGO_BACKGROUND);
             System.out.println("MY_COLOR_JBUTTON_BACKGROUND: " + MY_COLOR_JBUTTON_BACKGROUND);
             System.out.println("MY_COLOR_JBUTTON_ARRAY_BACKGROUND: " + MY_COLOR_JBUTTON_ARRAY_BACKGROUND);
-
+            System.out.println("\n");
 
             // Tab Icons Specifications
+            System.out.println("Tab Icons Specifications:");
             System.out.println("Tab Icons Specifications:");
             System.out.println("TAB_ICON_NAME: " + TAB_ICON_NAME);
             System.out.println("\n");
