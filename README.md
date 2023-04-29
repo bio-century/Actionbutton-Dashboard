@@ -44,6 +44,8 @@ folder. Please check out section [Folder structure](#folderstructure) as referen
   There are 5 sheets available in each 
   workbook.
 
+![Example for Users](./README_Images/github_demo_video.mp4)
+
 NOTE: If errors occure leading to the jar-file not being executed, review the template delivered by downloading the repo, which also serves as an 
 example right away. Please pay attention to the proper setting of spaces in the config-file. Moreover, the following procedure might give you 
 extra hints:
