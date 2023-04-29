@@ -44,7 +44,7 @@ folder. Please check out section [Folder structure](#folderstructure) as referen
   There are 5 sheets available in each 
   workbook.
 
-<img src="./README_Images/video-tutorial-sign.png" width="50%"><br>
+<img src="./README_Images/video-tutorial-sign.png" width="100%"><br>
 
 <br>
 NOTE: If errors occure leading to the jar-file not being executed, review the template delivered by downloading the repo, which also serves as an 
