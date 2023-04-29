@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="700"
-   height="70"
+   width="910.82379"
+   height="24.120001"
    fill="currentColor"
    class="bi bi-window"
-   viewBox="0 0 699.99996 69.999997"
+   viewBox="0 0 910.82374 24.12"
    version="1.1"
    id="svg6"
    sodipodi:docname="video-tutorial-sign.svg"
@@ -225,8 +225,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="1.4071425"
-     inkscape:cx="368.12192"
-     inkscape:cy="115.12693"
+     inkscape:cx="478.27423"
+     inkscape:cy="105.88835"
      inkscape:window-width="3440"
      inkscape:window-height="1377"
      inkscape:window-x="1912"
@@ -242,20 +242,15 @@
   <text
      xml:space="preserve"
      style="font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#ff0000"
-     x="344.58707"
-     y="27.630341"
+     x="454.71588"
+     y="18.360001"
      id="text6344"
      inkscape:export-filename="D:\Daten\WEBSITE\Git\Actionbutton-Dashboard\README_Images\video-tutorial-sign.png"
      inkscape:export-xdpi="150"
      inkscape:export-ydpi="150"><tspan
        sodipodi:role="line"
-       id="tspan6342"
-       x="344.58707"
-       y="27.630341"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ff0000">Check out ./video_tutorial/github_demo_video.mp4</tspan><tspan
-       sodipodi:role="line"
-       x="347.70706"
-       y="57.630341"
+       x="457.83591"
+       y="18.360001"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ff0000"
-       id="tspan12754">for a short video tutorial </tspan></text>
+       id="tspan12754">Check out ./video_tutorial/github_demo_video.mp4 for a short video tutorial </tspan></text>
 </svg>
