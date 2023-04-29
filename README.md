@@ -21,6 +21,7 @@ out the step-by-step manual in the [Getting Started](#gettingstarted) section!
 - [Folder structure](#folderstructure)
 - [Configuration File (config.properties)](#ConfigFile)
 - [Spreadsheet Files](#SpreadSheet)
+- [Requirements](#Requirements)
 - [License](#license)
 - [Contributors & Acknowledgments](#Contributors&Acknowledgments)
 - [Sources](#Sources)
@@ -175,6 +176,15 @@ anyone in an easy manner...Thanks for your inspirations!
 | icons      | filename of icon-image for each JButton. If empty, the field will be ignored       | Filenames of Images stored in the icons-folder |
 
 
+## <a id='Requirements'></a> Requirements
+```
+java 19.0.1 2022-10-18
+Java(TM) SE Runtime Environment (build 19.0.1+10-21)
+Java HotSpot(TM) 64-Bit Server VM (build 19.0.1+10-21, mixed mode, sharing)
+
+Apache Maven 3.9.1
+Default locale: en_US, platform encoding: UTF-8
+```
 ## <a id='license'></a> License
 This work is published under the GPL-2.0 license.
 
