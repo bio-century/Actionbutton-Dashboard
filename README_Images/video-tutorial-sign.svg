@@ -225,7 +225,7 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="1.4071425"
-     inkscape:cx="478.27423"
+     inkscape:cx="522.33516"
      inkscape:cy="105.88835"
      inkscape:window-width="3440"
      inkscape:window-height="1377"
@@ -241,16 +241,16 @@
      fit-margin-bottom="0" />
   <text
      xml:space="preserve"
-     style="font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#ff0000"
-     x="454.71588"
-     y="18.360001"
+     style="font-size:19.4565px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#ff0000;stroke-width:0.810688"
+     x="453.01178"
+     y="16.964863"
      id="text6344"
      inkscape:export-filename="D:\Daten\WEBSITE\Git\Actionbutton-Dashboard\README_Images\video-tutorial-sign.png"
      inkscape:export-xdpi="150"
      inkscape:export-ydpi="150"><tspan
        sodipodi:role="line"
-       x="457.83591"
-       y="18.360001"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;text-anchor:middle;fill:#ff0000"
+       x="455.7146"
+       y="16.964863"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4565px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;text-anchor:middle;fill:#ff0000;stroke-width:0.810688"
        id="tspan12754">Check out ./video_tutorial/github_demo_video.mp4 for a short video tutorial </tspan></text>
 </svg>
