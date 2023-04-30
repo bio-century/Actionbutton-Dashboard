@@ -35,7 +35,8 @@ This section is subdivided into a [Manual For USERS](#ManualForUSERS) and a [Man
 This is a step-by-step manual for users. Everything you need to set up your Actionbutton-Dashboard can be found in the target 
 folder. Please check out section [Folder structure](#folderstructure) as reference for the following instructions:
 - Copy the target folder ([Folder structure](#folderstructure): 1) into a local destination folder of your choice.
-- Run the jar file named ```Actionbutton-Dashboard-jar-with-dependencies.jar``` ([Folder structure](#folderstructure): 2) as a first test. If this 
+- Run the jar file named ```Actionbutton-Dashboard-jar-with-dependencies.jar``` ([Folder structure](#folderstructure): 2) placed in the root folder 
+  as a first test. If this 
   doesn't work, check out if a Java Software Development Kit (SDK) is installed on your computer. Manuals can be found everywhere, e.g. on         
   <a href="https://www.geeksforgeeks.org/download-and-install-java-development-kit-jdk-on-windows-mac-and-linux/">www.geeksforgeeks.org</a>.
 - Set up the configuration file ```config.properties``` ([Folder structure](#folderstructure): 3 and section [ConfigFile](#ConfigFile)) to define 
@@ -43,7 +44,8 @@ folder. Please check out section [Folder structure](#folderstructure) as referen
 - Complement the ```icons-``` and the ```images-```folder ([Folder structure](#folderstructure): 4 & 5) with your individual layout figures used for 
   the tabs (-> see ```config.properties```) and the JButtons (-> see [Folder structure](#folderstructure): 6, spreadsheet files, tab "icons").
 - Configure the spreadsheet files used for your dashboard ([Folder structure](#folderstructure): 6 and [Spreadsheet](#spreadsheet)). 
-  There are 5 sheets available in each workbook.
+  There are 5 sheets available in each workbook. IMPORTANT: CLOSER ALL WORKBOOKS AFTER SAVING BEFORE EXECUTING THE JAR-FILE AGAIN
+- Re-run by double-clicking on the ```Actionbutton-Dashboard-jar-with-dependencies.jar```-file in the root folder. 
 
 <img src="./README_Images/video-tutorial-sign.png" width="100%"><br>
 
