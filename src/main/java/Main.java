@@ -46,7 +46,6 @@ public class Main {
 //  (02)                                       Define Paths                                       //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
     static String USER_DIR = System.getProperty("user.dir");
-//    public static String SPREADSHEET_NAME = "\\BUTTON_AUTOSTART.xlsx";
 
     public static void main(String[] args) throws IOException {
 
@@ -66,7 +65,6 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
         try {
 
-//            System.out.println(Col_TestCaseID);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////  (04.01)                     Load User Configuration Parameters                            //
@@ -133,9 +131,6 @@ public class Main {
             String MY_COLOR_JTAB_BACKGROUND = prop.getProperty("MY_COLOR_JTAB_BACKGROUND");
             String MY_COLOR_JTAB_BACKGROUND_TRIMMED = MY_COLOR_JTAB_BACKGROUND.replaceAll(" ","");
             String[] MY_COLOR_JTAB_BACKGROUND_ALL = MY_COLOR_JTAB_BACKGROUND_TRIMMED.split(",");
-
-//            String MY_FRAME_BACKGROUND = prop.getProperty("MY_FRAME_BACKGROUND");
-//            String MY_FRAME_BACKGROUND_TRIMMED = MY_FRAME_BACKGROUND.replaceAll(" ","");
 
 
             // Tab Icons
