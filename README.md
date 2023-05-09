@@ -48,6 +48,7 @@ folder. Please check out section [Folder structure](#folderstructure) as referen
 - Re-run by double-clicking on the ```Actionbutton-Dashboard-jar-with-dependencies.jar```-file in the root folder. 
 
 <img src="./README_Images/video-tutorial-sign.png" width="100%"><br>
+https://raw.githubusercontent.com/bio-century/Actionbutton-Dashboard/main/video_tutorial/github_demo_video.mp4
 
 <br>
 NOTE: If errors occure leading to the jar-file not being executed, review the template delivered by downloading the repo, which also serves as an 
