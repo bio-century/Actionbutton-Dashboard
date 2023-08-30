@@ -15,18 +15,21 @@ NOTE: Everything can be setup quite easily, you don't need to have programming s
 out the step-by-step manual in the [Getting Started](#gettingstarted) section!
 
 # Table of Content
-- [Getting Started](#gettingstarted)
-  - [Manual For USERS](#ManualForUSERS)
-  - [Manual For Programmers](#ManualForProgrammers)
-  - [Inspirations & ToDo's](#InspirationsandToDos)
-- [Folder structure](#folderstructure)
-- [Configuration File (config.properties)](#ConfigFile)
-- [Spreadsheet Files](#SpreadSheet)
-- [Requirements](#Requirements)
-- [License](#license)
-- [Contributors & Acknowledgments](#Contributors&Acknowledgments)
-- [Sources](#Sources)
-- [Contact](#contact)
+- [The Actionbutton-Dashboard Project](#the-actionbutton-dashboard-project)
+- [Abstract](#abstract)
+- [Table of Content](#table-of-content)
+  - [ Getting Started](#-getting-started)
+    - [ Manual For USERS](#-manual-for-users)
+    - [ Manual For PROGRAMMERS](#-manual-for-programmers)
+    - [ Inspirations \& ToDo's](#-inspirations--todos)
+  - [ Folder structure](#-folder-structure)
+  - [ Configuration File (config.properties)](#-configuration-file-configproperties)
+  - [ Spreadsheet Files](#-spreadsheet-files)
+  - [ Requirements](#-requirements)
+  - [ License](#-license)
+  - [ Contributors \& Acknowledgments](#-contributors--acknowledgments)
+  - [ Sources](#-sources)
+  - [ Contact](#-contact)
 
 ## <a id='gettingstarted'></a> Getting Started
 This section is subdivided into a [Manual For USERS](#ManualForUSERS) and a [Manual For PROGRAMMERS](#ManualForProgrammers).
@@ -44,7 +47,10 @@ folder. Please check out section [Folder structure](#folderstructure) as referen
 - Complement the ```icons-``` and the ```images-```folder ([Folder structure](#folderstructure): 4 & 5) with your individual layout figures used for 
   the tabs (-> see ```config.properties```) and the JButtons (-> see [Folder structure](#folderstructure): 6, spreadsheet files, tab "icons").
 - Configure the spreadsheet files used for your dashboard ([Folder structure](#folderstructure): 6 and [Spreadsheet](#spreadsheet)). 
-  There are 5 sheets available in each workbook. IMPORTANT: CLOSER ALL WORKBOOKS AFTER SAVING BEFORE EXECUTING THE JAR-FILE AGAIN
+  There are 5 sheets available in each workbook.
+  IMPORTANT:
+  - MAKE SURE THAT THE NUMBER OF WORKBOOKS STORED IN ./src/main/resources/spreadsheetFiles/ IS THE SAME AS THE NUMBER OF CATEGORY_TITLES, SPREADSHEET_NAMES AND TAB_ICON_NAME DEFINED IN THE config.properties-FILE STORED UNDER ./src/main/resources/ !!
+  - CLOSE ALL WORKBOOKS AFTER SAVING BEFORE EXECUTING THE JAR-FILE AGAIN
 - Re-run by double-clicking on the ```Actionbutton-Dashboard-jar-with-dependencies.jar```-file in the root folder. 
 
 <img src="./README_Images/video-tutorial-sign.png" width="100%"><br>
